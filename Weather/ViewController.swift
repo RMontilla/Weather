@@ -17,33 +17,32 @@ class ViewController: UIViewController {
     @IBOutlet private weak var refreshLocationButton: UIButton!
     @IBOutlet private weak var mapView: MKMapView!
     
-    
     //MARK: - Variables
-    private var locationManager: CLLocationManager? {
-        let locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager.startUpdatingLocation()
-        }
-        return locationManager
-    }
-
+    
+    private var locationManager: CLLocationManager?
+    
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupMapView()
+        setupCoreLocation()
     }
-
+    
     //MARK: - Setup
     private func setupMapView() {
         
     }
     
     private func setupCoreLocation() {
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager?.startUpdatingLocation()
+        }
     }
     
     //MARK: - UI Actions
