@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Weather
 //
-//  Created by rafaerum on 2020/06/05.
+//  Created by Rafael Montilla on 2020/06/05.
 //  Copyright © 2020 rafael. All rights reserved.
 //
 
@@ -18,22 +18,16 @@ class ViewController: UIViewController {
     @IBOutlet private weak var mapView: MKMapView!
     
     //MARK: - Variables
-    
     private var locationManager: CLLocationManager?
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupMapView()
         setupCoreLocation()
     }
     
     //MARK: - Setup
-    private func setupMapView() {
-        
-    }
-    
     private func setupCoreLocation() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self

@@ -2,7 +2,7 @@
 //  WeatherRequest.swift
 //  Weather
 //
-//  Created by rafaerum on 2020/06/08.
+//  Created by Rafael Montilla on 2020/06/08.
 //  Copyright © 2020 rafael. All rights reserved.
 //
 

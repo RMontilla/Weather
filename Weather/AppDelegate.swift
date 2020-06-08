@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Weather
 //
-//  Created by rafaerum on 2020/06/05.
+//  Created by Rafael Montilla on 2020/06/05.
 //  Copyright © 2020 rafael. All rights reserved.
 //
 
