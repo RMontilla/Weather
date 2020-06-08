@@ -19,19 +19,19 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u2k-gQ-lPq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="117"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="S9y-AM-hQC">
-                                                <rect key="frame" x="15" y="8" width="384" height="19.5"/>
+                                                <rect key="frame" x="15" y="8" width="384" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtM-jc-UQ8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTu-kt-sdM">
-                                                        <rect key="frame" x="374" y="0.0" width="10" height="19.5"/>
+                                                        <rect key="frame" x="374" y="0.0" width="10" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -39,44 +39,61 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hHv-VV-NiK">
-                                                <rect key="frame" x="15" y="37.5" width="384" height="19.5"/>
+                                                <rect key="frame" x="15" y="38.5" width="384" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5S-Pf-JHW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="80.5" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="80.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fr-T8-Vp9">
-                                                        <rect key="frame" x="374" y="0.0" width="10" height="19.5"/>
+                                                        <rect key="frame" x="374" y="0.0" width="10" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lc4-7Y-OKs" customClass="RoundedButton" customModule="Weather" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="67" width="384" height="40"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5E-OH-0sY" customClass="ShadowContainerView" customModule="Weather" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="69" width="384" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lc4-7Y-OKs" customClass="RoundedButton" customModule="Weather" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="dbL-fj-4aZ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <state key="normal" title="Refresh Location">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="refreshLocationButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jfa-dD-XWQ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="dbL-fj-4aZ"/>
+                                                    <constraint firstItem="Lc4-7Y-OKs" firstAttribute="top" secondItem="U5E-OH-0sY" secondAttribute="top" id="K5g-cC-lxS"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Lc4-7Y-OKs" secondAttribute="bottom" id="Ooa-mQ-JM0"/>
+                                                    <constraint firstItem="Lc4-7Y-OKs" firstAttribute="leading" secondItem="U5E-OH-0sY" secondAttribute="leading" id="k8w-pM-GPs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Lc4-7Y-OKs" secondAttribute="trailing" id="qCG-S3-zJ3"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <state key="normal" title="Refresh Location">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="refreshLocationButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jfa-dD-XWQ"/>
-                                                </connections>
-                                            </button>
+                                            </view>
                                         </subviews>
                                         <edgeInsets key="layoutMargins" top="8" left="15" bottom="8" right="15"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oE7-hn-8uW">
-                                        <rect key="frame" x="0.0" y="120" width="414" height="698"/>
+                                        <rect key="frame" x="0.0" y="122" width="414" height="696"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ejo-Dw-T1g">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="698"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
                                             </mapView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
