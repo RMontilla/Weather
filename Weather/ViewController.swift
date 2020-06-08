@@ -46,20 +46,44 @@ class ViewController: UIViewController {
     }
     
     //MARK: - UI Actions
-    
     @IBAction func refreshLocationButtonTapped(_ sender: Any) {
+    }
+}
+
+//MARK: - API Calls
+extension ViewController {
+    private func fetchCurrentWeather(coordinate: CLLocationCoordinate2D) {
+        let request = WeatherRequest(latitude: coordinate.latitude.description, longitude: coordinate.longitude.description)
         
+        APIManager.shared.makeRequest(target: request) { (result: Result<WeatherResponse, APIError>) in
+            switch result {
+            case .success(let response):
+                print("request done \(response)")
+            case .failure(let error):
+                print(error.errorDescription)
+            }
+        }
     }
 }
 
 //MARK: - CLLocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedAlways: break
+        case .authorizedWhenInUse: break
+        case .denied: break
+        default: break
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0]
         latitudeLabel.text = "\(userLocation.coordinate.latitude)"
         longitudeLabel.text = "\(userLocation.coordinate.longitude)"
         
         mapView.setCenter(userLocation.coordinate, animated: true)
+        fetchCurrentWeather(coordinate: userLocation.coordinate)
     }
 }
 

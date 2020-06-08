@@ -38,8 +38,9 @@ public protocol RequestConvertible: URLRequestConvertible {
 extension RequestConvertible {
     
     public func asURLRequest() throws -> URLRequest {
-        var url = URL(string: router.baseURL)!
-        url.appendPathComponent(path)
+        var urlString = router.baseURL + path
+        if let apiKey = router.apiKey { urlString += "&appid=\(apiKey)" }
+        let url = URL(string: urlString)!
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         return request

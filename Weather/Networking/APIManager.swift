@@ -17,20 +17,26 @@ enum APIError: Error {
     var errorDescription: String {
         switch self {
         case .noData: return "No data received"
-        case .customError: return "Request error"
+        case .customError(let message): return message
         default: return "Error"
         }
     }
 }
 
 final class APIManager {
+    static let shared = APIManager()
     
-    
-    func makeRequest<T: Decodable>(target: RequestConvertible, completion: @escaping (Result<T, APIError>) -> Void) {
+    public func makeRequest<T: Decodable>(target: RequestConvertible, completion: @escaping (Result<T, APIError>) -> Void) {
         
         AF.request(target)
           .validate(statusCode: 200...201)
           .responseDecodable(of: T.self) { (response) in
+            print("didmake call")
+            if let data = response.data,
+                let json = try? JSONSerialization.jsonObject(with: data, options: []){
+                print("json \(json)")
+            }
+            
             if let errorDescription = response.error?.errorDescription {
                 completion(.failure(.customError(errorDescription)))
                 return
@@ -41,6 +47,5 @@ final class APIManager {
             }
             completion(.success(value))
         }
-        
     }
 }
