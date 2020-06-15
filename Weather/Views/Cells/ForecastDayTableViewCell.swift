@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol ForecastDayCellModel: class {
-    var image: UIImage { get }
-    var time: String { get }
+protocol ForecastDayCellModel {
+    var image: UIImage? { get }
+    var formattedTime: String { get }
     var weatherDescription: String { get }
-    var temperature: String { get }
+    var formattedTemperature: String { get }
 }
 
 class ForecastDayTableViewCell: UITableViewCell {
@@ -36,8 +36,8 @@ class ForecastDayTableViewCell: UITableViewCell {
     
     func setupCell(withModel model: ForecastDayCellModel) {
         weatherImageView.image = model.image
-        timeLabel.text = model.time
+        timeLabel.text = model.formattedTime
         weatherDescriptionLabel.text = model.weatherDescription
-        temperatureLabel.text = model.temperature
+        temperatureLabel.text = model.formattedTemperature
     }
 }

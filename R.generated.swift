@@ -172,12 +172,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 2 files.
+  /// This `R.file` struct is generated, and contains static references to 3 files.
   struct file {
     /// Resource file `Montserrat-Light.otf`.
     static let montserratLightOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Montserrat-Light", pathExtension: "otf")
     /// Resource file `Montserrat-Medium.otf`.
     static let montserratMediumOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Montserrat-Medium", pathExtension: "otf")
+    /// Resource file `swiftgen.yml`.
+    static let swiftgenYml = Rswift.FileResource(bundle: R.hostingBundle, name: "swiftgen", pathExtension: "yml")
 
     /// `bundle.url(forResource: "Montserrat-Light", withExtension: "otf")`
     static func montserratLightOtf(_: Void = ()) -> Foundation.URL? {
@@ -188,6 +190,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Montserrat-Medium", withExtension: "otf")`
     static func montserratMediumOtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.montserratMediumOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "swiftgen", withExtension: "yml")`
+    static func swiftgenYml(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.swiftgenYml
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -550,6 +558,891 @@ struct R: Rswift.Validatable {
 
     static func forecastDayTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ForecastDayTableViewCell? {
       return R.nib.forecastDayTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ForecastDayTableViewCell
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 46 localization keys.
+    struct localizable {
+      /// Base translation: Broken Clouds
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionBrokenClouds = Rswift.StringResource(key: "WeatherCondition.brokenClouds", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Clear
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionClear = Rswift.StringResource(key: "WeatherCondition.clear", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Dust
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionDust = Rswift.StringResource(key: "WeatherCondition.dust", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Extreme Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionExtremeRain = Rswift.StringResource(key: "WeatherCondition.extremeRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Few Clouds
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionFewClouds = Rswift.StringResource(key: "WeatherCondition.fewClouds", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Fog
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionFog = Rswift.StringResource(key: "WeatherCondition.fog", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Freezing Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionFreezingRain = Rswift.StringResource(key: "WeatherCondition.freezingRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Haze
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionHaze = Rswift.StringResource(key: "WeatherCondition.haze", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Heavy Intensity Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionHeavyIntensityRain = Rswift.StringResource(key: "WeatherCondition.heavyIntensityRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Heavy Intensity Shower Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionHeavyIntensityShowerRain = Rswift.StringResource(key: "WeatherCondition.heavyIntensityShowerRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Heavy Shower Snow
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionHeavyShowerSnow = Rswift.StringResource(key: "WeatherCondition.heavyShowerSnow", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Heavy Snow
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionHeavySnow = Rswift.StringResource(key: "WeatherCondition.heavySnow", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Heavy Thunderstorm
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionHeavyThunderstorm = Rswift.StringResource(key: "WeatherCondition.heavyThunderstorm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Light Intensity Shower Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionLightIntensityShowerRain = Rswift.StringResource(key: "WeatherCondition.lightIntensityShowerRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Light Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionLightRain = Rswift.StringResource(key: "WeatherCondition.lightRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Light Rain Snow
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionLightRainSnow = Rswift.StringResource(key: "WeatherCondition.lightRainSnow", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Light Shower Sleet
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionLightShowerSleet = Rswift.StringResource(key: "WeatherCondition.lightShowerSleet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Light Shower Snow
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionLightShowerSnow = Rswift.StringResource(key: "WeatherCondition.lightShowerSnow", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Light Snow
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionLightSnow = Rswift.StringResource(key: "WeatherCondition.lightSnow", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Light Thunderstorm
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionLightThunderstorm = Rswift.StringResource(key: "WeatherCondition.lightThunderstorm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Mist
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionMist = Rswift.StringResource(key: "WeatherCondition.mist", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Moderate Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionModerateRain = Rswift.StringResource(key: "WeatherCondition.moderateRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Overcast Clouds
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionOvercastClouds = Rswift.StringResource(key: "WeatherCondition.overcastClouds", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Ragged Shower Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionRaggedShowerRain = Rswift.StringResource(key: "WeatherCondition.raggedShowerRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Ragged Thunderstorm
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionRaggedThunderstorm = Rswift.StringResource(key: "WeatherCondition.raggedThunderstorm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Rain Snow
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionRainSnow = Rswift.StringResource(key: "WeatherCondition.rainSnow", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Sand
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionSand = Rswift.StringResource(key: "WeatherCondition.sand", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Sand Dust Whirls
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionSandDustWhirls = Rswift.StringResource(key: "WeatherCondition.sandDustWhirls", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Scattered Clouds
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionScatteredClouds = Rswift.StringResource(key: "WeatherCondition.scatteredClouds", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Shower Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionShowerRain = Rswift.StringResource(key: "WeatherCondition.showerRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Shower Sleet
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionShowerSleet = Rswift.StringResource(key: "WeatherCondition.showerSleet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Shower Snow
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionShowerSnow = Rswift.StringResource(key: "WeatherCondition.showerSnow", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Sleet
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionSleet = Rswift.StringResource(key: "WeatherCondition.sleet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Smoke
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionSmoke = Rswift.StringResource(key: "WeatherCondition.smoke", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Snow
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionSnow = Rswift.StringResource(key: "WeatherCondition.snow", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Squalls
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionSqualls = Rswift.StringResource(key: "WeatherCondition.squalls", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Thunderstorm
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionThunderstorm = Rswift.StringResource(key: "WeatherCondition.thunderstorm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Thunderstorm with Drizzle
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionThunderstormDrizzle = Rswift.StringResource(key: "WeatherCondition.thunderstormDrizzle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Thunderstorm with Heavy Drizzle
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionThunderstormHeavyDrizzle = Rswift.StringResource(key: "WeatherCondition.thunderstormHeavyDrizzle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Thunderstorm with Heavy Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionThunderstormHeavyRain = Rswift.StringResource(key: "WeatherCondition.thunderstormHeavyRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Thunderstorm with Light Drizzle
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionThunderstormLightDrizzle = Rswift.StringResource(key: "WeatherCondition.thunderstormLightDrizzle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Thunderstorm with Light Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionThunderstormLightRain = Rswift.StringResource(key: "WeatherCondition.thunderstormLightRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Thunderstorm with Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionThunderstormRain = Rswift.StringResource(key: "WeatherCondition.thunderstormRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Tornado
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionTornado = Rswift.StringResource(key: "WeatherCondition.tornado", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Very Heavy Rain
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionVeryHeavyRain = Rswift.StringResource(key: "WeatherCondition.veryHeavyRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Volcanic Ash
+      ///
+      /// Locales: en, ja, Base
+      static let weatherConditionVolcanicAsh = Rswift.StringResource(key: "WeatherCondition.volcanicAsh", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+
+      /// Base translation: Broken Clouds
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionBrokenClouds(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.brokenClouds", bundle: hostingBundle, value: "Broken Clouds", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.brokenClouds"
+        }
+
+        return NSLocalizedString("WeatherCondition.brokenClouds", bundle: bundle, value: "Broken Clouds", comment: "")
+      }
+
+      /// Base translation: Clear
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionClear(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.clear", bundle: hostingBundle, value: "Clear", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.clear"
+        }
+
+        return NSLocalizedString("WeatherCondition.clear", bundle: bundle, value: "Clear", comment: "")
+      }
+
+      /// Base translation: Dust
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionDust(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.dust", bundle: hostingBundle, value: "Dust", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.dust"
+        }
+
+        return NSLocalizedString("WeatherCondition.dust", bundle: bundle, value: "Dust", comment: "")
+      }
+
+      /// Base translation: Extreme Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionExtremeRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.extremeRain", bundle: hostingBundle, value: "Extreme Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.extremeRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.extremeRain", bundle: bundle, value: "Extreme Rain", comment: "")
+      }
+
+      /// Base translation: Few Clouds
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionFewClouds(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.fewClouds", bundle: hostingBundle, value: "Few Clouds", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.fewClouds"
+        }
+
+        return NSLocalizedString("WeatherCondition.fewClouds", bundle: bundle, value: "Few Clouds", comment: "")
+      }
+
+      /// Base translation: Fog
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionFog(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.fog", bundle: hostingBundle, value: "Fog", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.fog"
+        }
+
+        return NSLocalizedString("WeatherCondition.fog", bundle: bundle, value: "Fog", comment: "")
+      }
+
+      /// Base translation: Freezing Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionFreezingRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.freezingRain", bundle: hostingBundle, value: "Freezing Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.freezingRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.freezingRain", bundle: bundle, value: "Freezing Rain", comment: "")
+      }
+
+      /// Base translation: Haze
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionHaze(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.haze", bundle: hostingBundle, value: "Haze", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.haze"
+        }
+
+        return NSLocalizedString("WeatherCondition.haze", bundle: bundle, value: "Haze", comment: "")
+      }
+
+      /// Base translation: Heavy Intensity Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionHeavyIntensityRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.heavyIntensityRain", bundle: hostingBundle, value: "Heavy Intensity Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.heavyIntensityRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.heavyIntensityRain", bundle: bundle, value: "Heavy Intensity Rain", comment: "")
+      }
+
+      /// Base translation: Heavy Intensity Shower Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionHeavyIntensityShowerRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.heavyIntensityShowerRain", bundle: hostingBundle, value: "Heavy Intensity Shower Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.heavyIntensityShowerRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.heavyIntensityShowerRain", bundle: bundle, value: "Heavy Intensity Shower Rain", comment: "")
+      }
+
+      /// Base translation: Heavy Shower Snow
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionHeavyShowerSnow(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.heavyShowerSnow", bundle: hostingBundle, value: "Heavy Shower Snow", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.heavyShowerSnow"
+        }
+
+        return NSLocalizedString("WeatherCondition.heavyShowerSnow", bundle: bundle, value: "Heavy Shower Snow", comment: "")
+      }
+
+      /// Base translation: Heavy Snow
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionHeavySnow(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.heavySnow", bundle: hostingBundle, value: "Heavy Snow", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.heavySnow"
+        }
+
+        return NSLocalizedString("WeatherCondition.heavySnow", bundle: bundle, value: "Heavy Snow", comment: "")
+      }
+
+      /// Base translation: Heavy Thunderstorm
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionHeavyThunderstorm(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.heavyThunderstorm", bundle: hostingBundle, value: "Heavy Thunderstorm", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.heavyThunderstorm"
+        }
+
+        return NSLocalizedString("WeatherCondition.heavyThunderstorm", bundle: bundle, value: "Heavy Thunderstorm", comment: "")
+      }
+
+      /// Base translation: Light Intensity Shower Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionLightIntensityShowerRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.lightIntensityShowerRain", bundle: hostingBundle, value: "Light Intensity Shower Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.lightIntensityShowerRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.lightIntensityShowerRain", bundle: bundle, value: "Light Intensity Shower Rain", comment: "")
+      }
+
+      /// Base translation: Light Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionLightRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.lightRain", bundle: hostingBundle, value: "Light Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.lightRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.lightRain", bundle: bundle, value: "Light Rain", comment: "")
+      }
+
+      /// Base translation: Light Rain Snow
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionLightRainSnow(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.lightRainSnow", bundle: hostingBundle, value: "Light Rain Snow", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.lightRainSnow"
+        }
+
+        return NSLocalizedString("WeatherCondition.lightRainSnow", bundle: bundle, value: "Light Rain Snow", comment: "")
+      }
+
+      /// Base translation: Light Shower Sleet
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionLightShowerSleet(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.lightShowerSleet", bundle: hostingBundle, value: "Light Shower Sleet", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.lightShowerSleet"
+        }
+
+        return NSLocalizedString("WeatherCondition.lightShowerSleet", bundle: bundle, value: "Light Shower Sleet", comment: "")
+      }
+
+      /// Base translation: Light Shower Snow
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionLightShowerSnow(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.lightShowerSnow", bundle: hostingBundle, value: "Light Shower Snow", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.lightShowerSnow"
+        }
+
+        return NSLocalizedString("WeatherCondition.lightShowerSnow", bundle: bundle, value: "Light Shower Snow", comment: "")
+      }
+
+      /// Base translation: Light Snow
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionLightSnow(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.lightSnow", bundle: hostingBundle, value: "Light Snow", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.lightSnow"
+        }
+
+        return NSLocalizedString("WeatherCondition.lightSnow", bundle: bundle, value: "Light Snow", comment: "")
+      }
+
+      /// Base translation: Light Thunderstorm
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionLightThunderstorm(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.lightThunderstorm", bundle: hostingBundle, value: "Light Thunderstorm", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.lightThunderstorm"
+        }
+
+        return NSLocalizedString("WeatherCondition.lightThunderstorm", bundle: bundle, value: "Light Thunderstorm", comment: "")
+      }
+
+      /// Base translation: Mist
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionMist(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.mist", bundle: hostingBundle, value: "Mist", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.mist"
+        }
+
+        return NSLocalizedString("WeatherCondition.mist", bundle: bundle, value: "Mist", comment: "")
+      }
+
+      /// Base translation: Moderate Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionModerateRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.moderateRain", bundle: hostingBundle, value: "Moderate Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.moderateRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.moderateRain", bundle: bundle, value: "Moderate Rain", comment: "")
+      }
+
+      /// Base translation: Overcast Clouds
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionOvercastClouds(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.overcastClouds", bundle: hostingBundle, value: "Overcast Clouds", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.overcastClouds"
+        }
+
+        return NSLocalizedString("WeatherCondition.overcastClouds", bundle: bundle, value: "Overcast Clouds", comment: "")
+      }
+
+      /// Base translation: Ragged Shower Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionRaggedShowerRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.raggedShowerRain", bundle: hostingBundle, value: "Ragged Shower Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.raggedShowerRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.raggedShowerRain", bundle: bundle, value: "Ragged Shower Rain", comment: "")
+      }
+
+      /// Base translation: Ragged Thunderstorm
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionRaggedThunderstorm(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.raggedThunderstorm", bundle: hostingBundle, value: "Ragged Thunderstorm", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.raggedThunderstorm"
+        }
+
+        return NSLocalizedString("WeatherCondition.raggedThunderstorm", bundle: bundle, value: "Ragged Thunderstorm", comment: "")
+      }
+
+      /// Base translation: Rain Snow
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionRainSnow(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.rainSnow", bundle: hostingBundle, value: "Rain Snow", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.rainSnow"
+        }
+
+        return NSLocalizedString("WeatherCondition.rainSnow", bundle: bundle, value: "Rain Snow", comment: "")
+      }
+
+      /// Base translation: Sand
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionSand(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.sand", bundle: hostingBundle, value: "Sand", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.sand"
+        }
+
+        return NSLocalizedString("WeatherCondition.sand", bundle: bundle, value: "Sand", comment: "")
+      }
+
+      /// Base translation: Sand Dust Whirls
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionSandDustWhirls(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.sandDustWhirls", bundle: hostingBundle, value: "Sand Dust Whirls", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.sandDustWhirls"
+        }
+
+        return NSLocalizedString("WeatherCondition.sandDustWhirls", bundle: bundle, value: "Sand Dust Whirls", comment: "")
+      }
+
+      /// Base translation: Scattered Clouds
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionScatteredClouds(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.scatteredClouds", bundle: hostingBundle, value: "Scattered Clouds", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.scatteredClouds"
+        }
+
+        return NSLocalizedString("WeatherCondition.scatteredClouds", bundle: bundle, value: "Scattered Clouds", comment: "")
+      }
+
+      /// Base translation: Shower Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionShowerRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.showerRain", bundle: hostingBundle, value: "Shower Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.showerRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.showerRain", bundle: bundle, value: "Shower Rain", comment: "")
+      }
+
+      /// Base translation: Shower Sleet
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionShowerSleet(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.showerSleet", bundle: hostingBundle, value: "Shower Sleet", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.showerSleet"
+        }
+
+        return NSLocalizedString("WeatherCondition.showerSleet", bundle: bundle, value: "Shower Sleet", comment: "")
+      }
+
+      /// Base translation: Shower Snow
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionShowerSnow(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.showerSnow", bundle: hostingBundle, value: "Shower Snow", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.showerSnow"
+        }
+
+        return NSLocalizedString("WeatherCondition.showerSnow", bundle: bundle, value: "Shower Snow", comment: "")
+      }
+
+      /// Base translation: Sleet
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionSleet(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.sleet", bundle: hostingBundle, value: "Sleet", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.sleet"
+        }
+
+        return NSLocalizedString("WeatherCondition.sleet", bundle: bundle, value: "Sleet", comment: "")
+      }
+
+      /// Base translation: Smoke
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionSmoke(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.smoke", bundle: hostingBundle, value: "Smoke", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.smoke"
+        }
+
+        return NSLocalizedString("WeatherCondition.smoke", bundle: bundle, value: "Smoke", comment: "")
+      }
+
+      /// Base translation: Snow
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionSnow(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.snow", bundle: hostingBundle, value: "Snow", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.snow"
+        }
+
+        return NSLocalizedString("WeatherCondition.snow", bundle: bundle, value: "Snow", comment: "")
+      }
+
+      /// Base translation: Squalls
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionSqualls(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.squalls", bundle: hostingBundle, value: "Squalls", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.squalls"
+        }
+
+        return NSLocalizedString("WeatherCondition.squalls", bundle: bundle, value: "Squalls", comment: "")
+      }
+
+      /// Base translation: Thunderstorm
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionThunderstorm(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.thunderstorm", bundle: hostingBundle, value: "Thunderstorm", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.thunderstorm"
+        }
+
+        return NSLocalizedString("WeatherCondition.thunderstorm", bundle: bundle, value: "Thunderstorm", comment: "")
+      }
+
+      /// Base translation: Thunderstorm with Drizzle
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionThunderstormDrizzle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.thunderstormDrizzle", bundle: hostingBundle, value: "Thunderstorm with Drizzle", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.thunderstormDrizzle"
+        }
+
+        return NSLocalizedString("WeatherCondition.thunderstormDrizzle", bundle: bundle, value: "Thunderstorm with Drizzle", comment: "")
+      }
+
+      /// Base translation: Thunderstorm with Heavy Drizzle
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionThunderstormHeavyDrizzle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.thunderstormHeavyDrizzle", bundle: hostingBundle, value: "Thunderstorm with Heavy Drizzle", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.thunderstormHeavyDrizzle"
+        }
+
+        return NSLocalizedString("WeatherCondition.thunderstormHeavyDrizzle", bundle: bundle, value: "Thunderstorm with Heavy Drizzle", comment: "")
+      }
+
+      /// Base translation: Thunderstorm with Heavy Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionThunderstormHeavyRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.thunderstormHeavyRain", bundle: hostingBundle, value: "Thunderstorm with Heavy Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.thunderstormHeavyRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.thunderstormHeavyRain", bundle: bundle, value: "Thunderstorm with Heavy Rain", comment: "")
+      }
+
+      /// Base translation: Thunderstorm with Light Drizzle
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionThunderstormLightDrizzle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.thunderstormLightDrizzle", bundle: hostingBundle, value: "Thunderstorm with Light Drizzle", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.thunderstormLightDrizzle"
+        }
+
+        return NSLocalizedString("WeatherCondition.thunderstormLightDrizzle", bundle: bundle, value: "Thunderstorm with Light Drizzle", comment: "")
+      }
+
+      /// Base translation: Thunderstorm with Light Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionThunderstormLightRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.thunderstormLightRain", bundle: hostingBundle, value: "Thunderstorm with Light Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.thunderstormLightRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.thunderstormLightRain", bundle: bundle, value: "Thunderstorm with Light Rain", comment: "")
+      }
+
+      /// Base translation: Thunderstorm with Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionThunderstormRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.thunderstormRain", bundle: hostingBundle, value: "Thunderstorm with Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.thunderstormRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.thunderstormRain", bundle: bundle, value: "Thunderstorm with Rain", comment: "")
+      }
+
+      /// Base translation: Tornado
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionTornado(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.tornado", bundle: hostingBundle, value: "Tornado", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.tornado"
+        }
+
+        return NSLocalizedString("WeatherCondition.tornado", bundle: bundle, value: "Tornado", comment: "")
+      }
+
+      /// Base translation: Very Heavy Rain
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionVeryHeavyRain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.veryHeavyRain", bundle: hostingBundle, value: "Very Heavy Rain", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.veryHeavyRain"
+        }
+
+        return NSLocalizedString("WeatherCondition.veryHeavyRain", bundle: bundle, value: "Very Heavy Rain", comment: "")
+      }
+
+      /// Base translation: Volcanic Ash
+      ///
+      /// Locales: en, ja, Base
+      static func weatherConditionVolcanicAsh(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("WeatherCondition.volcanicAsh", bundle: hostingBundle, value: "Volcanic Ash", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "WeatherCondition.volcanicAsh"
+        }
+
+        return NSLocalizedString("WeatherCondition.volcanicAsh", bundle: bundle, value: "Volcanic Ash", comment: "")
+      }
+
+      fileprivate init() {}
     }
 
     fileprivate init() {}

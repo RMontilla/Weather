@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ForecastResponse {
     var cityName: String
@@ -28,10 +29,41 @@ extension ForecastResponse: Decodable {
     }
 }
 
+enum TimeOfDay {
+    case day, night
+}
+
 struct ForecastDay {
+    
     var temperature: Float
     var weatherCondition: WeatherCondition
     var time: Date
+    
+    var timeOfDay: TimeOfDay {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
+        guard let hour = Int(formatter.string(from: time)) else { return .day }
+        return 6...18 ~= hour ? .day : .night
+    }
+}
+
+extension ForecastDay: ForecastDayCellModel {
+    var image: UIImage? {
+        return timeOfDay == .day ? weatherCondition.dayImage : weatherCondition.nightImage
+    }
+    
+    var formattedTime: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: time)
+    }
+    
+    var weatherDescription: String {
+        return weatherCondition.description
+    }
+    
+    var formattedTemperature: String { return "\(Int(temperature))°"
+    }
 }
 
 extension ForecastDay: Decodable {

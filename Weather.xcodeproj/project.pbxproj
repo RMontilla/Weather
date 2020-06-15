@@ -136,11 +136,11 @@
 		024C7D6E248E22270041B715 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				02722F3F249745150092D9B5 /* L10n-Constants.swift */,
 				02146DA124970E8E009662C7 /* Fonts */,
 				02E7F6D5248A2B1C00B7378E /* Assets.xcassets */,
 				024C7D73248E22A70041B715 /* Localizable.strings */,
 				02146DB32497272F009662C7 /* R.generated.swift */,
+				02722F3F249745150092D9B5 /* L10n-Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
