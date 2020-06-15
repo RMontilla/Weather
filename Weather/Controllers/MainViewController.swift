@@ -10,25 +10,25 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     //MARK: - Outlets
-    @IBOutlet private weak var latitudeLabel: UILabel!
-    @IBOutlet private weak var longitudeLabel: UILabel!
-    @IBOutlet private weak var refreshLocationButton: UIButton!
-    @IBOutlet private weak var mapView: MKMapView!
+    //@IBOutlet private weak var latitudeLabel: UILabel!
+    //@IBOutlet private weak var longitudeLabel: UILabel!
+    //@IBOutlet private weak var refreshLocationButton: UIButton!
+    //@IBOutlet private weak var mapView: MKMapView!
     
     //MARK: - Variables
-    private var locationManager: CLLocationManager?
+    //private var locationManager: CLLocationManager?
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupCoreLocation()
+        //setupCoreLocation()
     }
     
     //MARK: - Setup
-    private func setupCoreLocation() {
+    /*private func setupCoreLocation() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         if CLLocationManager.locationServicesEnabled(){
             locationManager?.startUpdatingLocation()
         }
-    }
+    }*/
     
     //MARK: - UI Actions
     @IBAction func refreshLocationButtonTapped(_ sender: Any) {
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
 }
 
 //MARK: - API Calls
-extension ViewController {
+extension MainViewController {
     private func fetchCurrentWeather(coordinate: CLLocationCoordinate2D) {
         let request = WeatherRequest(latitude: coordinate.latitude.description, longitude: coordinate.longitude.description)
         
@@ -74,7 +74,7 @@ extension ViewController {
 }
 
 //MARK: - CLLocationManagerDelegate
-extension ViewController: CLLocationManagerDelegate {
+/*extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways: break
@@ -86,12 +86,7 @@ extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0]
-        latitudeLabel.text = "\(userLocation.coordinate.latitude)"
-        longitudeLabel.text = "\(userLocation.coordinate.longitude)"
-        
-        mapView.setCenter(userLocation.coordinate, animated: true)
-        //fetchCurrentWeather(coordinate: userLocation.coordinate)
-        fetchForecast(coordinate: userLocation.coordinate)
+        NotificationCenter.default.post(name: .locationUpdated, object: self, userInfo: [Constants.NotificationKeys.coordinate: userLocation])
     }
-}
+}*/
 

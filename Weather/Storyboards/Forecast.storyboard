@@ -12,23 +12,22 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Forecast-->
         <scene sceneID="t3D-j5-sYe">
             <objects>
-                <viewController id="WUc-Ey-RMu" sceneMemberID="viewController">
+                <viewController id="WUc-Ey-RMu" customClass="ForecastViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hra-sC-BL8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AnO-w3-3Np">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x18-ZB-AAt">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prague" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsF-xf-smR">
-                                                <rect key="frame" x="186" y="9" width="59" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prague" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsF-xf-smR">
+                                                <rect key="frame" x="177.5" y="10" width="59" height="20"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -42,16 +41,22 @@
                                             <constraint firstAttribute="trailing" secondItem="hQw-ve-K2i" secondAttribute="trailing" id="D5L-IH-hre"/>
                                             <constraint firstAttribute="bottom" secondItem="hQw-ve-K2i" secondAttribute="bottom" id="Kcc-md-SCA"/>
                                             <constraint firstItem="hQw-ve-K2i" firstAttribute="leading" secondItem="x18-ZB-AAt" secondAttribute="leading" id="MMk-c1-LvH"/>
+                                            <constraint firstItem="SsF-xf-smR" firstAttribute="centerY" secondItem="x18-ZB-AAt" secondAttribute="centerY" id="ORi-yq-eSb"/>
+                                            <constraint firstItem="SsF-xf-smR" firstAttribute="centerX" secondItem="x18-ZB-AAt" secondAttribute="centerX" id="Wf1-b4-tyt"/>
                                             <constraint firstItem="hQw-ve-K2i" firstAttribute="width" secondItem="x18-ZB-AAt" secondAttribute="width" id="YXX-oq-yav"/>
                                             <constraint firstAttribute="height" constant="40" id="a0Q-N6-Ve4"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tmx-ru-fuU">
-                                        <rect key="frame" x="0.0" y="40" width="414" height="778"/>
+                                        <rect key="frame" x="0.0" y="40" width="414" height="729"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-6P-LgB">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="778"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-6P-LgB">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="729"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="WUc-Ey-RMu" id="ayj-sH-Sqg"/>
+                                                    <outlet property="delegate" destination="WUc-Ey-RMu" id="71j-fW-Shk"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -74,13 +79,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kOH-tZ-ZJe"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Forecast" image="ForecastInactiveTab" selectedImage="ForecastActiveTab" id="ZYv-ij-WXp"/>
+                    <navigationItem key="navigationItem" id="Yen-m7-F87"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="SsF-xf-smR" id="DYE-Se-i9T"/>
+                        <outlet property="forecastTableView" destination="D0f-6P-LgB" id="x2L-EY-14P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xD2-dL-krS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-51" y="68"/>
+            <point key="canvasLocation" x="857.97101449275374" y="67.633928571428569"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ForecastActiveTab" width="25" height="25"/>
+        <image name="ForecastInactiveTab" width="25" height="25"/>
         <image name="Line" width="320" height="2"/>
     </resources>
 </document>

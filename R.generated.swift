@@ -563,6 +563,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `ForecastDayTableViewCell`.
+    static let forecastDayTableViewCell: Rswift.ReuseIdentifier<ForecastDayTableViewCell> = Rswift.ReuseIdentifier(identifier: "ForecastDayTableViewCell")
+
+    fileprivate init() {}
+  }
+
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
     /// This `R.string.localizable` struct is generated, and contains static references to 46 localization keys.
@@ -1477,8 +1485,11 @@ struct _R: Rswift.Validatable {
       try _ForecastDayTableViewCell.validate()
     }
 
-    struct _ForecastDayTableViewCell: Rswift.NibResourceType, Rswift.Validatable {
+    struct _ForecastDayTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = ForecastDayTableViewCell
+
       let bundle = R.hostingBundle
+      let identifier = "ForecastDayTableViewCell"
       let name = "ForecastDayTableViewCell"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ForecastDayTableViewCell? {
@@ -1519,12 +1530,14 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct forecast: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UIViewController
+      typealias InitialController = ForecastViewController
 
       let bundle = R.hostingBundle
       let name = "Forecast"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "ForecastActiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ForecastActiveTab' is used in storyboard 'Forecast', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ForecastInactiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ForecastInactiveTab' is used in storyboard 'Forecast', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Line", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Line' is used in storyboard 'Forecast', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
@@ -1552,12 +1565,16 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = ViewController
+      typealias InitialController = MainTabViewController
 
       let bundle = R.hostingBundle
       let name = "Main"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "ForecastActiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ForecastActiveTab' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ForecastInactiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ForecastInactiveTab' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "TodayActiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TodayActiveTab' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "TodayInactiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TodayInactiveTab' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -1567,7 +1584,9 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct weather: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct weather: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UIViewController
+
       let bundle = R.hostingBundle
       let name = "Weather"
 
@@ -1578,6 +1597,8 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "Line", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Line' is used in storyboard 'Weather', but couldn't be loaded.") }
         if UIKit.UIImage(named: "PrecipitationOther", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'PrecipitationOther' is used in storyboard 'Weather', but couldn't be loaded.") }
         if UIKit.UIImage(named: "PressureOther", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'PressureOther' is used in storyboard 'Weather', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "TodayActiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TodayActiveTab' is used in storyboard 'Weather', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "TodayInactiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TodayInactiveTab' is used in storyboard 'Weather', but couldn't be loaded.") }
         if UIKit.UIImage(named: "WindDirection", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'WindDirection' is used in storyboard 'Weather', but couldn't be loaded.") }
         if UIKit.UIImage(named: "WindOther", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'WindOther' is used in storyboard 'Weather', but couldn't be loaded.") }
         if UIKit.UIImage(named: "divider", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'divider' is used in storyboard 'Weather', but couldn't be loaded.") }
