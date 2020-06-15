@@ -2,6 +2,60 @@
   Localizable.strings
   Weather
 
-  Created by rafaerum on 2020/06/08.
+  Created by Rafael Montilla on 2020/06/08.
   Copyright © 2020 rafael. All rights reserved.
 */
+
+//Mark: - Weather Conditions
+//Thunderstorm
+"WeatherCondition.thunderstormLightRain" = "小雨のある雷雨";
+"WeatherCondition.thunderstormRain" = "雷雨";
+"WeatherCondition.thunderstormHeavyRain" = "激しい雨の雷雨";
+"WeatherCondition.lightThunderstorm" = "ライトサンダーストーム";
+"WeatherCondition.thunderstorm" = "雷雨";
+"WeatherCondition.heavyThunderstorm" = "激しい雷雨";
+"WeatherCondition.raggedThunderstorm" = "不規則な雷雨";
+"WeatherCondition.thunderstormLightDrizzle" = "雷雨と雷雨";
+"WeatherCondition.thunderstormDrizzle" = "雷雨と雷雨";
+"WeatherCondition.thunderstormHeavyDrizzle" = "激しい霧雨と雷雨";
+//雨
+"WeatherCondition.lightRain" = "小雨";
+"WeatherCondition.moderateRain" = "適度な雨";
+"WeatherCondition.heavyIntensityRain" = "激しい雨";
+"WeatherCondition.veryHeavyRain" = "非常に激しい雨";
+"WeatherCondition.extremeRain" = "極端な雨";
+"WeatherCondition.freezingRain" = "凍結する雨";
+"WeatherCondition.lightIntensityShowerRain" = "光強度シャワー雨";
+"WeatherCondition.showerRain" = "シャワーレイン";
+"WeatherCondition.heavyIntensityShowerRain" = "強烈なシャワーレイン";
+"WeatherCondition.raggedShowerRain" = "不規則な雨";
+//雪
+"WeatherCondition.lightSnow" = "小雪";
+"WeatherCondition.snow" = "雪";
+"WeatherCondition.heavySnow" = "激しい雪";
+"WeatherCondition.sleet" = "スリート";
+"WeatherCondition.lightShowerSleet" = "ライトシャワースリープ";
+"WeatherCondition.showerSleet" = "シャワースリープ";
+"WeatherCondition.lightRainSnow" = "小雨雪";
+"WeatherCondition.rainSnow" = "雨の雪";
+"WeatherCondition.lightShowerSnow" = "ライトシャワースノー";
+"WeatherCondition.showerSnow" = "シャワースノー";
+"WeatherCondition.heavyShowerSnow" = "激しいシャワーの雪";
+//雰囲気
+"WeatherCondition.mist" = "霧";
+"WeatherCondition.smoke" = "煙";
+"WeatherCondition.haze" = "ヘイズ";
+"WeatherCondition.sandDustWhirls" = "砂塵の渦";
+"WeatherCondition.fog" = "霧";
+"WeatherCondition.sand" = "砂";
+"WeatherCondition.dust" = "ダスト";
+"WeatherCondition.volcanicAsh" = "火山灰";
+"WeatherCondition.squalls" = "スコール";
+"WeatherCondition.tornado" = "竜巻";
+//晴れ
+"WeatherCondition.clear" = "クリア";
+//雲
+"WeatherCondition.fewClouds" = "雲が少ない";
+"WeatherCondition.scatteredClouds" = "散在する雲";
+"WeatherCondition.brokenClouds" = "壊れた雲";
+"WeatherCondition.overcastClouds" = "曇り雲";

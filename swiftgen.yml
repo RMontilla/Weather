@@ -1,0 +1,8 @@
+input_dir: Weather/Resources/
+output_dir: Weather/Resources/
+strings:
+  inputs: Base.lproj
+  filter: .+\.strings$
+  outputs:
+    - templateName: structured-swift4
+      output: L10n-Constants.swift

@@ -2,6 +2,60 @@
   Localizable.strings
   Weather
 
-  Created by rafaerum on 2020/06/08.
+  Created by Rafael Montilla on 2020/06/08.
   Copyright © 2020 rafael. All rights reserved.
 */
+
+//Mark: - Weather Conditions
+//Thunderstorm
+"WeatherCondition.thunderstormLightRain" = "Thunderstorm with Light Rain";
+"WeatherCondition.thunderstormRain" = "Thunderstorm with Rain";
+"WeatherCondition.thunderstormHeavyRain" = "Thunderstorm with Heavy Rain";
+"WeatherCondition.lightThunderstorm" = "Light Thunderstorm";
+"WeatherCondition.thunderstorm" = "Thunderstorm";
+"WeatherCondition.heavyThunderstorm" = "Heavy Thunderstorm";
+"WeatherCondition.raggedThunderstorm" = "Ragged Thunderstorm";
+"WeatherCondition.thunderstormLightDrizzle" = "Thunderstorm with Light Drizzle";
+"WeatherCondition.thunderstormDrizzle" = "Thunderstorm with Drizzle";
+"WeatherCondition.thunderstormHeavyDrizzle" = "Thunderstorm with Heavy Drizzle";
+//Rain
+"WeatherCondition.lightRain" = "Light Rain";
+"WeatherCondition.moderateRain" = "Moderate Rain";
+"WeatherCondition.heavyIntensityRain" = "Heavy Intensity Rain";
+"WeatherCondition.veryHeavyRain" = "Very Heavy Rain";
+"WeatherCondition.extremeRain" = "Extreme Rain";
+"WeatherCondition.freezingRain" = "Freezing Rain";
+"WeatherCondition.lightIntensityShowerRain" = "Light Intensity Shower Rain";
+"WeatherCondition.showerRain" = "Shower Rain";
+"WeatherCondition.heavyIntensityShowerRain" = "Heavy Intensity Shower Rain";
+"WeatherCondition.raggedShowerRain" = "Ragged Shower Rain";
+//Snow
+"WeatherCondition.lightSnow" = "Light Snow";
+"WeatherCondition.snow" = "Snow";
+"WeatherCondition.heavySnow" = "Heavy Snow";
+"WeatherCondition.sleet" = "Sleet";
+"WeatherCondition.lightShowerSleet" = "Light Shower Sleet";
+"WeatherCondition.showerSleet" = "Shower Sleet";
+"WeatherCondition.lightRainSnow" = "Light Rain Snow";
+"WeatherCondition.rainSnow" = "Rain Snow";
+"WeatherCondition.lightShowerSnow" = "Light Shower Snow";
+"WeatherCondition.showerSnow" = "Shower Snow";
+"WeatherCondition.heavyShowerSnow" = "Heavy Shower Snow";
+//Atmosphere
+"WeatherCondition.mist" = "Mist";
+"WeatherCondition.smoke" = "Smoke";
+"WeatherCondition.haze" = "Haze";
+"WeatherCondition.sandDustWhirls" = "Sand Dust Whirls";
+"WeatherCondition.fog" = "Fog";
+"WeatherCondition.sand" = "Sand";
+"WeatherCondition.dust" = "Dust";
+"WeatherCondition.volcanicAsh" = "Volcanic Ash";
+"WeatherCondition.squalls" = "Squalls";
+"WeatherCondition.tornado" = "Tornado";
+//Clear
+"WeatherCondition.clear" = "Clear";
+//Clouds
+"WeatherCondition.fewClouds" = "Few Clouds";
+"WeatherCondition.scatteredClouds" = "Scattered Clouds";
+"WeatherCondition.brokenClouds" = "Broken Clouds";
+"WeatherCondition.overcastClouds" = "Overcast Clouds";
