@@ -40,6 +40,7 @@ extension RequestConvertible {
     public func asURLRequest() throws -> URLRequest {
         var urlString = router.baseURL + path
         if let apiKey = router.apiKey { urlString += "&appid=\(apiKey)" }
+        urlString += "&units=metric"
         let url = URL(string: urlString)!
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
