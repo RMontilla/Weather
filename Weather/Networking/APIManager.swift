@@ -25,12 +25,19 @@ enum APIError: Error {
 
 final class APIManager {
     static let shared = APIManager()
+    private var decoder: JSONDecoder {
+        let decoder = JSONDecoder()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        decoder.dateDecodingStrategy = .formatted(formatter)
+        return decoder
+    }
     
     public func makeRequest<T: Decodable>(target: RequestConvertible, completion: @escaping (Result<T, APIError>) -> Void) {
         
         AF.request(target)
           .validate(statusCode: 200...201)
-          .responseDecodable(of: T.self) { (response) in
+            .responseDecodable(of: T.self, decoder: decoder) { (response) in
             print("didmake call")
             if let data = response.data,
                 let json = try? JSONSerialization.jsonObject(with: data, options: []){

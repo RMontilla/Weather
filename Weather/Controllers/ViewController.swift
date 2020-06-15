@@ -58,6 +58,19 @@ extension ViewController {
             }
         }
     }
+    
+    private func fetchForecast(coordinate: CLLocationCoordinate2D) {
+        let request = ForecastRequest(latitude: coordinate.latitude.description, longitude: coordinate.longitude.description)
+        
+        APIManager.shared.makeRequest(target: request) { (result: Result<ForecastResponse, APIError>) in
+            switch result {
+            case .success(let response):
+                print("request done \(response)")
+            case .failure(let error):
+                print(error.errorDescription)
+            }
+        }
+    }
 }
 
 //MARK: - CLLocationManagerDelegate
@@ -77,7 +90,8 @@ extension ViewController: CLLocationManagerDelegate {
         longitudeLabel.text = "\(userLocation.coordinate.longitude)"
         
         mapView.setCenter(userLocation.coordinate, animated: true)
-        fetchCurrentWeather(coordinate: userLocation.coordinate)
+        //fetchCurrentWeather(coordinate: userLocation.coordinate)
+        fetchForecast(coordinate: userLocation.coordinate)
     }
 }
 
