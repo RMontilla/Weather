@@ -10,6 +10,7 @@
 		02146DA324970F09009662C7 /* Montserrat-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02146DA224970F09009662C7 /* Montserrat-Medium.otf */; };
 		02146DA524971024009662C7 /* Weather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02146DA424971024009662C7 /* Weather.storyboard */; };
 		02146DA7249715B3009662C7 /* Forecast.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02146DA6249715B3009662C7 /* Forecast.storyboard */; };
+		02146DAF249719E7009662C7 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02146DAE249719E7009662C7 /* Montserrat-Light.otf */; };
 		024C7D67248E04E00041B715 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024C7D66248E04E00041B715 /* WeatherResponse.swift */; };
 		024C7D6C248E180E0041B715 /* ShadowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024C7D6B248E180E0041B715 /* ShadowContainerView.swift */; };
 		024C7D71248E22A70041B715 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 024C7D73248E22A70041B715 /* Localizable.strings */; };
@@ -31,6 +32,7 @@
 		02146DA224970F09009662C7 /* Montserrat-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.otf"; sourceTree = "<group>"; };
 		02146DA424971024009662C7 /* Weather.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Weather.storyboard; sourceTree = "<group>"; };
 		02146DA6249715B3009662C7 /* Forecast.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Forecast.storyboard; sourceTree = "<group>"; };
+		02146DAE249719E7009662C7 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
 		024C7D66248E04E00041B715 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		024C7D6B248E180E0041B715 /* ShadowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowContainerView.swift; sourceTree = "<group>"; };
 		024C7D72248E22A70041B715 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		02146DA124970E8E009662C7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				02146DAE249719E7009662C7 /* Montserrat-Light.otf */,
 				02146DA224970F09009662C7 /* Montserrat-Medium.otf */,
 			);
 			path = Fonts;
@@ -284,6 +287,7 @@
 				024C7D71248E22A70041B715 /* Localizable.strings in Resources */,
 				02E7F6D6248A2B1C00B7378E /* Assets.xcassets in Resources */,
 				02E7F6D4248A2B1500B7378E /* Main.storyboard in Resources */,
+				02146DAF249719E7009662C7 /* Montserrat-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
