@@ -26,7 +26,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ewa-RS-sl4">
-                        <rect key="frame" x="20" y="0.0" width="335" height="90"/>
+                        <rect key="frame" x="20" y="0.0" width="355" height="90"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndX-Bx-fFT">
                                 <rect key="frame" x="0.0" y="0.0" width="60" height="90"/>
@@ -47,22 +47,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dQ-i9-ELx">
-                                <rect key="frame" x="85" y="0.0" width="250" height="90"/>
+                                <rect key="frame" x="85" y="0.0" width="270" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6Ws-DE-bUd">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="90"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="57g-4S-t16">
-                                                <rect key="frame" x="0.0" y="22.5" width="45.5" height="45.5"/>
+                                                <rect key="frame" x="0.0" y="23.5" width="45.5" height="43.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIt-ee-vMZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="45.5" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="45.5" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bB-7I-HvJ">
-                                                        <rect key="frame" x="0.0" y="28" width="45.5" height="17.5"/>
+                                                        <rect key="frame" x="0.0" y="27" width="45.5" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qb6-lH-9oj">
-                                                <rect key="frame" x="188" y="18" width="62" height="54"/>
+                                                <rect key="frame" x="183" y="19.5" width="67" height="51.5"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="44"/>
                                                 <color key="textColor" name="cl-light-blue"/>
                                                 <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bI4-el-kSf" userLabel="Separator">
-                                        <rect key="frame" x="0.0" y="89" width="250" height="1"/>
+                                        <rect key="frame" x="0.0" y="89" width="270" height="1"/>
                                         <color key="backgroundColor" name="cl-light-gray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="LUJ-kJ-C8X"/>
@@ -91,7 +91,6 @@
                                     <constraint firstAttribute="bottom" secondItem="bI4-el-kSf" secondAttribute="bottom" id="LtF-Na-z8L"/>
                                     <constraint firstItem="6Ws-DE-bUd" firstAttribute="leading" secondItem="9dQ-i9-ELx" secondAttribute="leading" id="Pv1-OU-2jn"/>
                                     <constraint firstItem="bI4-el-kSf" firstAttribute="leading" secondItem="9dQ-i9-ELx" secondAttribute="leading" id="YJI-eO-taF"/>
-                                    <constraint firstAttribute="trailing" secondItem="6Ws-DE-bUd" secondAttribute="trailing" id="aLb-Td-dQq"/>
                                     <constraint firstAttribute="bottom" secondItem="6Ws-DE-bUd" secondAttribute="bottom" id="pfL-m9-etd"/>
                                     <constraint firstItem="6Ws-DE-bUd" firstAttribute="top" secondItem="9dQ-i9-ELx" secondAttribute="top" id="qg7-vI-yom"/>
                                 </constraints>
@@ -109,12 +108,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="ewa-RS-sl4" secondAttribute="bottom" id="65C-eX-jdt"/>
-                    <constraint firstAttribute="trailing" secondItem="ewa-RS-sl4" secondAttribute="trailing" constant="20" id="CmM-a4-m5Z"/>
+                    <constraint firstAttribute="trailing" secondItem="ewa-RS-sl4" secondAttribute="trailing" id="CmM-a4-m5Z"/>
                     <constraint firstItem="ewa-RS-sl4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ak2-S2-PR6"/>
-                    <constraint firstItem="ewa-RS-sl4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="zeP-mT-hdc"/>
+                    <constraint firstItem="BSQ-5H-pkU" firstAttribute="trailing" secondItem="6Ws-DE-bUd" secondAttribute="trailing" constant="20" id="vfl-Qp-AfP"/>
+                    <constraint firstItem="ewa-RS-sl4" firstAttribute="leading" secondItem="BSQ-5H-pkU" secondAttribute="leading" constant="20" id="zeP-mT-hdc"/>
                 </constraints>
+                <viewLayoutGuide key="safeArea" id="BSQ-5H-pkU"/>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
             <connections>
                 <outlet property="temperatureLabel" destination="qb6-lH-9oj" id="k0B-lZ-sQs"/>
                 <outlet property="timeLabel" destination="zIt-ee-vMZ" id="6Ks-gN-nbG"/>

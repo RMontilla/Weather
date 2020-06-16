@@ -50,7 +50,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tmx-ru-fuU">
                                         <rect key="frame" x="0.0" y="40" width="414" height="729"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-6P-LgB">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-6P-LgB">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="729"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <connections>
@@ -74,7 +74,7 @@
                         <constraints>
                             <constraint firstItem="AnO-w3-3Np" firstAttribute="top" secondItem="kOH-tZ-ZJe" secondAttribute="top" id="5fe-9s-She"/>
                             <constraint firstItem="kOH-tZ-ZJe" firstAttribute="bottom" secondItem="AnO-w3-3Np" secondAttribute="bottom" id="WbK-BX-Wgz"/>
-                            <constraint firstItem="AnO-w3-3Np" firstAttribute="leading" secondItem="kOH-tZ-ZJe" secondAttribute="leading" id="huR-Qo-l8u"/>
+                            <constraint firstItem="AnO-w3-3Np" firstAttribute="leading" secondItem="Hra-sC-BL8" secondAttribute="leading" id="huR-Qo-l8u"/>
                             <constraint firstAttribute="trailing" secondItem="AnO-w3-3Np" secondAttribute="trailing" id="lLH-2b-THU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kOH-tZ-ZJe"/>
