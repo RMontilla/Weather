@@ -1585,7 +1585,7 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct weather: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UIViewController
+      typealias InitialController = WeatherViewController
 
       let bundle = R.hostingBundle
       let name = "Weather"

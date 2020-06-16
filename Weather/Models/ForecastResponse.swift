@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 struct ForecastResponse {
     var cityName: String
@@ -48,7 +47,7 @@ struct ForecastDay {
 }
 
 extension ForecastDay: ForecastDayCellModel {
-    var image: UIImage? {
+    var imageName: String {
         return timeOfDay == .day ? weatherCondition.dayImage : weatherCondition.nightImage
     }
     

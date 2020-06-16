@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 enum WeatherCondition: Int, Decodable {
     //Thunderstorm
@@ -117,7 +116,7 @@ extension WeatherCondition {
         }
     }
 
-    var dayImage: UIImage? {
+    var dayImage: String {
         switch self {
         case .thunderstormLightRain,
              .thunderstormRain,
@@ -128,17 +127,17 @@ extension WeatherCondition {
              .raggedThunderstorm,
              .thunderstormLightDrizzle,
              .thunderstormDrizzle,
-             .thunderstormHeavyDrizzle: return R.image.thunderstormDay()
+             .thunderstormHeavyDrizzle: return R.image.thunderstormDay.name
         case .lightRain,
              .moderateRain,
              .heavyIntensityRain,
              .veryHeavyRain,
              .extremeRain,
-             .freezingRain: return R.image.rainDay()
+             .freezingRain: return R.image.rainDay.name
         case .lightIntensityShowerRain,
              .showerRain,
              .heavyIntensityShowerRain,
-             .raggedShowerRain: return R.image.showerRainDay()
+             .raggedShowerRain: return R.image.showerRainDay.name
         case .lightSnow,
              .snow,
              .heavySnow,
@@ -149,7 +148,7 @@ extension WeatherCondition {
              .rainSnow,
              .lightShowerSnow,
              .showerSnow,
-             .heavyShowerSnow: return R.image.snowDay()
+             .heavyShowerSnow: return R.image.snowDay.name
         case .mist,
              .smoke,
              .haze,
@@ -159,16 +158,16 @@ extension WeatherCondition {
              .dust,
              .volcanicAsh,
              .squalls,
-             .tornado: return R.image.mistDay()
-        case .clear: return R.image.clearSkyDay()
-        case .fewClouds: return R.image.fewCloudsDay()
-        case .scatteredClouds: return R.image.scatteredCloudsDay()
+             .tornado: return R.image.mistDay.name
+        case .clear: return R.image.clearSkyDay.name
+        case .fewClouds: return R.image.fewCloudsDay.name
+        case .scatteredClouds: return R.image.scatteredCloudsDay.name
         case .brokenClouds,
-             .overcastClouds: return R.image.brokenCloudsDay()
+             .overcastClouds: return R.image.brokenCloudsDay.name
         }
     }
     
-    var nightImage: UIImage? {
+    var nightImage: String {
         switch self {
         case .thunderstormLightRain,
              .thunderstormRain,
@@ -179,17 +178,17 @@ extension WeatherCondition {
              .raggedThunderstorm,
              .thunderstormLightDrizzle,
              .thunderstormDrizzle,
-             .thunderstormHeavyDrizzle: return R.image.thunderstormNight()
+             .thunderstormHeavyDrizzle: return R.image.thunderstormNight.name
         case .lightRain,
              .moderateRain,
              .heavyIntensityRain,
              .veryHeavyRain,
              .extremeRain,
-             .freezingRain: return R.image.rainNight()
+             .freezingRain: return R.image.rainNight.name
         case .lightIntensityShowerRain,
              .showerRain,
              .heavyIntensityShowerRain,
-             .raggedShowerRain: return R.image.showerRainNight()
+             .raggedShowerRain: return R.image.showerRainNight.name
         case .lightSnow,
              .snow,
              .heavySnow,
@@ -200,7 +199,7 @@ extension WeatherCondition {
              .rainSnow,
              .lightShowerSnow,
              .showerSnow,
-             .heavyShowerSnow: return R.image.snowNight()
+             .heavyShowerSnow: return R.image.snowNight.name
         case .mist,
              .smoke,
              .haze,
@@ -210,13 +209,21 @@ extension WeatherCondition {
              .dust,
              .volcanicAsh,
              .squalls,
-             .tornado: return R.image.mistNight()
-        case .clear: return R.image.clearSkyNight()
-        case .fewClouds: return R.image.fewCloudsNight()
-        case .scatteredClouds: return R.image.scatteredCloudsNight()
+             .tornado: return R.image.mistNight.name
+        case .clear: return R.image.clearSkyNight.name
+        case .fewClouds: return R.image.fewCloudsNight.name
+        case .scatteredClouds: return R.image.scatteredCloudsNight.name
         case .brokenClouds,
-             .overcastClouds: return R.image.brokenCloudsNight()
+             .overcastClouds: return R.image.brokenCloudsNight.name
         }
     }
     
+}
+
+enum WindDirection: Int, Decodable {
+    case N, NNE, NE, ENE, E, ESE, SE, SSE, S, SSW, SW, WSW, W, WNW, NW, NNW
+    init?(degrees: Double) {
+        let value = Int((degrees/22.5) + 0.5)%16
+        self.init(rawValue: value)
+    }
 }

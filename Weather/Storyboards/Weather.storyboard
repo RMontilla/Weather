@@ -16,7 +16,7 @@
         <!--Today-->
         <scene sceneID="1Av-Xb-9j2">
             <objects>
-                <viewController id="kNX-03-9wS" sceneMemberID="viewController">
+                <viewController id="kNX-03-9wS" customClass="WeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="po9-EM-1dM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,8 +27,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQZ-Kb-yNP">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="at9-2Z-d9b">
-                                                <rect key="frame" x="192" y="10.5" width="30" height="19"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="at9-2Z-d9b">
+                                                <rect key="frame" x="190" y="30" width="35" height="60"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -268,6 +268,17 @@
                     <tabBarItem key="tabBarItem" title="Today" image="TodayInactiveTab" selectedImage="TodayActiveTab" id="k4V-ay-vac"/>
                     <navigationItem key="navigationItem" id="AjK-Sg-3ff"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="humidityLabel" destination="CHf-EX-iaH" id="iEd-bh-YZB"/>
+                        <outlet property="locationDescriptionLabel" destination="3Pg-KD-IrY" id="ovM-1b-G0i"/>
+                        <outlet property="precipitationLabel" destination="mKo-vF-n6f" id="9xQ-Ac-Vdx"/>
+                        <outlet property="pressureLabel" destination="pra-Nc-kTB" id="gLv-m7-VyV"/>
+                        <outlet property="titleLabel" destination="at9-2Z-d9b" id="NAV-Ul-OZO"/>
+                        <outlet property="weatherDescriptionLabel" destination="Uwf-Ye-wtA" id="qaV-17-tkt"/>
+                        <outlet property="weatherImageView" destination="vvA-D9-xQs" id="hFt-86-H45"/>
+                        <outlet property="windDirectionLabel" destination="d8g-xh-NZj" id="Uai-WG-RwV"/>
+                        <outlet property="windSpeedLabel" destination="Oey-po-GwS" id="Tfl-uF-tkL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Noo-rN-zHm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
