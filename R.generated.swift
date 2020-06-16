@@ -573,7 +573,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 46 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 47 localization keys.
     struct localizable {
       /// Base translation: Broken Clouds
       ///
@@ -747,6 +747,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ja, Base
       static let weatherConditionThunderstormRain = Rswift.StringResource(key: "WeatherCondition.thunderstormRain", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Today
+      ///
+      /// Locales: en, ja, Base
+      static let todayTitle = Rswift.StringResource(key: "Today.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
       /// Base translation: Tornado
       ///
       /// Locales: en, ja, Base
@@ -1403,6 +1407,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("WeatherCondition.thunderstormRain", bundle: bundle, value: "Thunderstorm with Rain", comment: "")
+      }
+
+      /// Base translation: Today
+      ///
+      /// Locales: en, ja, Base
+      static func todayTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Today.title", bundle: hostingBundle, value: "Today", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "Today.title"
+        }
+
+        return NSLocalizedString("Today.title", bundle: bundle, value: "Today", comment: "")
       }
 
       /// Base translation: Tornado

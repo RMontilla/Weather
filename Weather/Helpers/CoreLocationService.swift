@@ -26,7 +26,6 @@ class CoreLocationService: NSObject, CLLocationManagerDelegate {
     }
     
     public func startUpdating() {
-        print("startUpdating")
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()

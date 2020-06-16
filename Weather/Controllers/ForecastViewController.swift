@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
 import Combine
 
 class ForecastViewController: UIViewController {
@@ -61,7 +60,6 @@ class ForecastViewController: UIViewController {
             .assign(to: \.text, on: cityNameLabel)
             .store(in: &bag)
     }
-    
 }
 
 //MARK: - UITableViewDataSource

@@ -6,7 +6,10 @@
   Copyright © 2020 rafael. All rights reserved.
 */
 
-//Mark: - Weather Conditions
+//MARK: - Today
+"Today.title" = "Today";
+
+//MARK: - Weather Conditions
 //Thunderstorm
 "WeatherCondition.thunderstormLightRain" = "小雨のある雷雨";
 "WeatherCondition.thunderstormRain" = "雷雨";
