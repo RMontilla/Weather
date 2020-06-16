@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Combine
 
 class ForecastViewController: UIViewController {
     //MARK: - Outlets
@@ -18,51 +19,49 @@ class ForecastViewController: UIViewController {
         static let cellHeight: CGFloat = 90
     }
     //MARK: - Variables
-    private var forecasts: [ForecastDay] = [] {
-        didSet {
-            forecastTableView.reloadData()
-        }
+    private var bag = Set<AnyCancellable>()
+    private var viewModel = ForecastViewModel()
+    
+    /*init(apiManager: APIManager) {
+        self.viewModel = ForecastViewModel(apiManager: apiManager)
+        super.init(nibName: R.storyboard.forecast.name, bundle: R.storyboard.forecast.bundle)
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }*/
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupNotificationObservers()
-        // Do any additional setup after loading the view.
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: .locationUpdated, object: nil)
+        subscribeToPublishers()
     }
     //MARK: - Setup
     private func setupTableView() {
         forecastTableView.register(R.nib.forecastDayTableViewCell)
     }
-    private func setupNotificationObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(fetchForecast(_:)), name: .locationUpdated, object: nil)
+    private func subscribeToPublishers() {
+        // Location service
+        CoreLocationService.shared.currentCoordinates
+            .sink { [weak self] location in
+                guard let location = location else { return }
+                self?.viewModel.fetchForecast(location)
+            }
+            .store(in: &bag)
+        
+        // View model
+        viewModel.forecasts
+            .sink { [weak self] _ in
+                self?.forecastTableView.reloadData()
+            }
+            .store(in: &bag)
+        
+        viewModel.cityName
+            .assign(to: \.text, on: cityNameLabel)
+            .store(in: &bag)
     }
     
-    //MARK: - Fetch methods
-    @objc
-    private func fetchForecast(_ notification: Notification) {
-        print("notificationnnn")
-        guard let coordinate = notification.userInfo?[Constants.NotificationKeys.coordinate] as? CLLocationCoordinate2D else {
-            print(notification.userInfo ?? "error")
-            return
-        }
-        let request = ForecastRequest(latitude: coordinate.latitude.description, longitude: coordinate.longitude.description)
-        print("request")
-        APIManager.shared.makeRequest(target: request) { [weak self] (result: Result<ForecastResponse, APIError>) in
-            switch result {
-            case .success(let response):
-                self?.forecasts = response.forecasts
-                self?.cityNameLabel.text = response.cityName
-            case .failure(let error):
-                print(error.errorDescription)
-            }
-        }
-    }
 }
 
 //MARK: - UITableViewDataSource
@@ -72,13 +71,13 @@ extension ForecastViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return forecasts.count
+        return viewModel.forecasts.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.forecastDayTableViewCell,
                                                  for: indexPath)!
-        let forecastModel = forecasts[indexPath.row]
+        let forecastModel = viewModel.forecasts.value[indexPath.row]
         cell.setupCell(withModel: forecastModel)
         return cell
     }

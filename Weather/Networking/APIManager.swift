@@ -24,7 +24,6 @@ enum APIError: Error {
 }
 
 final class APIManager {
-    static let shared = APIManager()
     private var decoder: JSONDecoder {
         let decoder = JSONDecoder()
         let formatter = DateFormatter()
