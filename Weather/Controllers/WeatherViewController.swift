@@ -43,6 +43,7 @@ class WeatherViewController: UIViewController {
     //MARK: - Setup
     private func setupLocalizedText() {
         titleLabel.text = L10n.Today.title
+        title = L10n.Today.title
     }
     
     private func subscribeToPublishers() {

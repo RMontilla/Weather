@@ -12,6 +12,18 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
 
+  internal enum Error {
+    /// An error has occurred. Please try again
+    internal static let genericError = L10n.tr("Localizable", "Error.genericError")
+    /// There is no data available
+    internal static let noData = L10n.tr("Localizable", "Error.noData")
+  }
+
+  internal enum Forecast {
+    /// Forecast
+    internal static let title = L10n.tr("Localizable", "Forecast.title")
+  }
+
   internal enum Today {
     /// Today
     internal static let title = L10n.tr("Localizable", "Today.title")

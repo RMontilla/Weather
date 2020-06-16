@@ -9,8 +9,6 @@
 import Foundation
 
 enum Constants {
-    
-    
     enum NotificationKeys {
         static let coordinate = "coordinate"
     }

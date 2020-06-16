@@ -9,6 +9,13 @@
 //MARK: - Today
 "Today.title" = "Today";
 
+//MARK: - Forecast
+"Forecast.title" = "Forecast";
+
+//MARK: - Errors
+"Error.genericError" = "An error has occurred. Please try again";
+"Error.noData" = "There is no data available";
+
 //MARK: - Weather Conditions
 //Thunderstorm
 "WeatherCondition.thunderstormLightRain" = "Thunderstorm with Light Rain";

@@ -36,8 +36,7 @@ class WeatherViewModel {
             case .success(let weatherResponse):
                 self?.formatWeatherInfo(weatherResponse)
             case .failure(let error):
-                //self?.errorMessage.send(error.errorDescription)
-                print("\(error.errorDescription)")
+                self?.errorMessage.send(error.errorDescription)
             }
         }
     }

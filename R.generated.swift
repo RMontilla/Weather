@@ -573,8 +573,12 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 47 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 50 localization keys.
     struct localizable {
+      /// Base translation: An error has occurred. Please try again
+      ///
+      /// Locales: en, ja, Base
+      static let errorGenericError = Rswift.StringResource(key: "Error.genericError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
       /// Base translation: Broken Clouds
       ///
       /// Locales: en, ja, Base
@@ -599,6 +603,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ja, Base
       static let weatherConditionFog = Rswift.StringResource(key: "WeatherCondition.fog", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: Forecast
+      ///
+      /// Locales: en, ja, Base
+      static let forecastTitle = Rswift.StringResource(key: "Forecast.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
       /// Base translation: Freezing Rain
       ///
       /// Locales: en, ja, Base
@@ -719,6 +727,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ja, Base
       static let weatherConditionSqualls = Rswift.StringResource(key: "WeatherCondition.squalls", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+      /// Base translation: There is no data available
+      ///
+      /// Locales: en, ja, Base
+      static let errorNoData = Rswift.StringResource(key: "Error.noData", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
       /// Base translation: Thunderstorm
       ///
       /// Locales: en, ja, Base
@@ -763,6 +775,21 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ja, Base
       static let weatherConditionVolcanicAsh = Rswift.StringResource(key: "WeatherCondition.volcanicAsh", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ja", "Base"], comment: nil)
+
+      /// Base translation: An error has occurred. Please try again
+      ///
+      /// Locales: en, ja, Base
+      static func errorGenericError(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Error.genericError", bundle: hostingBundle, value: "An error has occurred. Please try again", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "Error.genericError"
+        }
+
+        return NSLocalizedString("Error.genericError", bundle: bundle, value: "An error has occurred. Please try again", comment: "")
+      }
 
       /// Base translation: Broken Clouds
       ///
@@ -852,6 +879,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("WeatherCondition.fog", bundle: bundle, value: "Fog", comment: "")
+      }
+
+      /// Base translation: Forecast
+      ///
+      /// Locales: en, ja, Base
+      static func forecastTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Forecast.title", bundle: hostingBundle, value: "Forecast", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "Forecast.title"
+        }
+
+        return NSLocalizedString("Forecast.title", bundle: bundle, value: "Forecast", comment: "")
       }
 
       /// Base translation: Freezing Rain
@@ -1302,6 +1344,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("WeatherCondition.squalls", bundle: bundle, value: "Squalls", comment: "")
+      }
+
+      /// Base translation: There is no data available
+      ///
+      /// Locales: en, ja, Base
+      static func errorNoData(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Error.noData", bundle: hostingBundle, value: "There is no data available", comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "Error.noData"
+        }
+
+        return NSLocalizedString("Error.noData", bundle: bundle, value: "There is no data available", comment: "")
       }
 
       /// Base translation: Thunderstorm

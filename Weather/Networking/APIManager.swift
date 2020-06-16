@@ -16,9 +16,9 @@ enum APIError: Error {
     
     var errorDescription: String {
         switch self {
-        case .noData: return "No data received"
+        case .noData: return L10n.Error.noData
         case .customError(let message): return message
-        default: return "Error"
+        default: return L10n.Error.genericError
         }
     }
 }

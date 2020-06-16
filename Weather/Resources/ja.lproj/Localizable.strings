@@ -7,7 +7,14 @@
 */
 
 //MARK: - Today
-"Today.title" = "Today";
+"Today.title" = "今日";
+
+//MARK: - Forecast
+"Forecast.title" = "天気情報";
+
+//MARK: - Errors
+"Error.genericError" = "エラーが発生しました. もう一度試して下さい";
+"Error.noData" = "データがありませんでした";
 
 //MARK: - Weather Conditions
 //Thunderstorm

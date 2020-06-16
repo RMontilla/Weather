@@ -33,10 +33,15 @@ class ForecastViewController: UIViewController {
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLocalizedText()
         setupTableView()
         subscribeToPublishers()
     }
     //MARK: - Setup
+    private func setupLocalizedText() {
+        title = L10n.Forecast.title
+    }
+    
     private func setupTableView() {
         forecastTableView.register(R.nib.forecastDayTableViewCell)
     }
