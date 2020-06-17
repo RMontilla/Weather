@@ -33,7 +33,7 @@ class ForecastDayTableViewCell: UITableViewCell {
     }
 
     func setupCell(withModel model: ForecastDayCellModel) {
-        weatherImageView.image = UIImage(named: model.imageName)
+        weatherImageView.image = model.imageName.isEmpty ? nil : UIImage(named: model.imageName)
         timeLabel.text = model.formattedTime
         weatherDescriptionLabel.text = model.weatherDescription
         temperatureLabel.text = model.formattedTemperature

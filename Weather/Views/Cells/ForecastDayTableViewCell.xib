@@ -31,7 +31,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndX-Bx-fFT">
                                 <rect key="frame" x="0.0" y="0.0" width="60" height="90"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ClearSkyDay" translatesAutoresizingMaskIntoConstraints="NO" id="8Dz-JE-D8O">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Dz-JE-D8O">
                                         <rect key="frame" x="0.0" y="15" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8Dz-JE-D8O" secondAttribute="height" multiplier="1:1" id="4DV-3J-iK9"/>
@@ -126,7 +126,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ClearSkyDay" width="60" height="60"/>
         <namedColor name="cl-light-blue">
             <color red="0.18431372549019609" green="0.56862745098039214" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

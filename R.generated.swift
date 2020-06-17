@@ -1556,20 +1556,13 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     #if os(iOS) || os(tvOS)
-    try nib.validate()
-    #endif
-    #if os(iOS) || os(tvOS)
     try storyboard.validate()
     #endif
   }
 
   #if os(iOS) || os(tvOS)
-  struct nib: Rswift.Validatable {
-    static func validate() throws {
-      try _ForecastDayTableViewCell.validate()
-    }
-
-    struct _ForecastDayTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+  struct nib {
+    struct _ForecastDayTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = ForecastDayTableViewCell
 
       let bundle = R.hostingBundle
@@ -1578,14 +1571,6 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ForecastDayTableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ForecastDayTableViewCell
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "ClearSkyDay", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ClearSkyDay' is used in nib 'ForecastDayTableViewCell', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "cl-light-blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'cl-light-blue' is used in storyboard 'ForecastDayTableViewCell', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "cl-light-gray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'cl-light-gray' is used in storyboard 'ForecastDayTableViewCell', but couldn't be loaded.") }
-        }
       }
 
       fileprivate init() {}

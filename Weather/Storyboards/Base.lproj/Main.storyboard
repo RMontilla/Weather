@@ -14,7 +14,18 @@
                     <view key="view" contentMode="scaleToFill" id="iis-eU-XNO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u90-x0-6Q1">
+                                <rect key="frame" x="166" y="419" width="82" height="58"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                <state key="normal" title="Log in"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="u90-x0-6Q1" firstAttribute="centerX" secondItem="iis-eU-XNO" secondAttribute="centerX" id="9nz-Hl-KEU"/>
+                            <constraint firstItem="u90-x0-6Q1" firstAttribute="centerY" secondItem="iis-eU-XNO" secondAttribute="centerY" id="Hks-Hy-NT2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Jkl-IT-CNB"/>
                     </view>
                 </viewController>
@@ -34,7 +45,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46N-hb-yJX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-445" y="-433"/>
+            <point key="canvasLocation" x="-294" y="-433"/>
         </scene>
     </scenes>
 </document>

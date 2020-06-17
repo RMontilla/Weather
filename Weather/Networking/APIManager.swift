@@ -24,6 +24,10 @@ enum APIError: Error {
 }
 
 final class APIManager {
+    private let session = Session(interceptor: RequestInterceptor())
+    
+    static let googleClientID = "185091436273-n2ee0tg2s297nuev9hqsh6vpoo45ghi2.apps.googleusercontent.com"
+
     private var decoder: JSONDecoder {
         let decoder = JSONDecoder()
         let formatter = DateFormatter()
@@ -34,24 +38,24 @@ final class APIManager {
 
     public func makeRequest<T: Decodable>(target: RequestConvertible,
                                           completion: @escaping (Result<T, APIError>) -> Void) {
-
-        AF.request(target)
-          .validate(statusCode: 200...201)
-            .responseDecodable(of: T.self, decoder: decoder) { (response) in
-            print("didmake call")
-            if let data = response.data,
-               let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                print("json \(json)")
-            }
-            if let errorDescription = response.error?.errorDescription {
-                completion(.failure(.customError(errorDescription)))
-                return
-            }
-            guard let value = response.value else {
-                completion(.failure(.noData))
-                return
-            }
-            completion(.success(value))
-        }
+        session.request(target)
+               .validate(statusCode: 200...300)
+               .responseDecodable(of: T.self, decoder: decoder) { (response) in
+                    print("response")
+                    if let data = response.data,
+                       let json = try? JSONSerialization.jsonObject(with: data, options: []) {
+                        print("json \(json)")
+                    }
+                    if let errorDescription = response.error?.errorDescription {
+                        print("errorDescription \(errorDescription)")
+                        completion(.failure(.customError(errorDescription)))
+                        return
+                    }
+                    guard let value = response.value else {
+                        completion(.failure(.noData))
+                        return
+                    }
+                    completion(.success(value))
+                }
     }
 }

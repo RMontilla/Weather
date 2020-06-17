@@ -45,13 +45,11 @@ extension Weather: Decodable {
         }
         self.weatherCondition = weatherCondition
         let windDegrees = try windContainer.decode(Double.self, forKey: .degrees)
-        print("windDe \(windDegrees)")
         guard let windDirection = WindDirection(degrees: windDegrees) else {
             throw DecodingError.keyNotFound(WindKeys.degrees,
                                             DecodingError.Context(codingPath: [],
                                                                   debugDescription: ""))
         }
-        print("windDirection \(windDirection)")
         self.windDirection = windDirection
         windSpeed = try windContainer.decode(Float.self, forKey: .speed)
     }
