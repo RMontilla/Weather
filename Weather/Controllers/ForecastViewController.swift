@@ -19,16 +19,22 @@ class ForecastViewController: UIViewController {
     }
     //MARK: - Variables
     private var bag = Set<AnyCancellable>()
-    private var viewModel = ForecastViewModel()
+    private var viewModel: ForecastViewModel
     
-    /*init(apiManager: APIManager) {
+    //MARK: - Injected properties
+    private let locationService: CoreLocationService
+    private let apiManager: APIManager
+    //MARK: - Custom Init
+    init?(coder: NSCoder, locationService: CoreLocationService, apiManager: APIManager) {
+        self.locationService = locationService
+        self.apiManager = apiManager
         self.viewModel = ForecastViewModel(apiManager: apiManager)
-        super.init(nibName: R.storyboard.forecast.name, bundle: R.storyboard.forecast.bundle)
+        super.init(coder: coder)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }*/
+    }
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -47,7 +53,7 @@ class ForecastViewController: UIViewController {
     }
     private func subscribeToPublishers() {
         // Location service
-        CoreLocationService.shared.currentCoordinates
+        locationService.currentCoordinates
             .sink { [weak self] location in
                 guard let location = location else { return }
                 self?.viewModel.fetchForecast(location)

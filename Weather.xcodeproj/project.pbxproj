@@ -176,8 +176,8 @@
 		024C7D77248E23630041B715 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				02722F43249757230092D9B5 /* ForecastViewController.swift */,
 				02722F492497641A0092D9B5 /* MainTabViewController.swift */,
+				02722F43249757230092D9B5 /* ForecastViewController.swift */,
 				02722F5224988A910092D9B5 /* WeatherViewController.swift */,
 			);
 			path = Controllers;
@@ -196,6 +196,7 @@
 		02722F4B249864B20092D9B5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				024C7D68248E17060041B715 /* Extensions */,
 				02722F4C249864CF0092D9B5 /* CoreLocationService.swift */,
 			);
 			path = Helpers;
@@ -269,16 +270,15 @@
 		02E7F6CB248A2B1500B7378E /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				02722F4F24987B740092D9B5 /* ViewModels */,
-				02722F4B249864B20092D9B5 /* Helpers */,
-				024C7D7A248E24250041B715 /* Storyboards */,
-				024C7D77248E23630041B715 /* Controllers */,
 				024C7D76248E23440041B715 /* SupportingFiles */,
 				024C7D6E248E22270041B715 /* Resources */,
-				024C7D68248E17060041B715 /* Extensions */,
-				024C7D65248E04C50041B715 /* Models */,
-				0276DB0C248DF2AC005DB6F4 /* Views */,
+				02722F4B249864B20092D9B5 /* Helpers */,
 				0276DB02248DCC02005DB6F4 /* Networking */,
+				024C7D65248E04C50041B715 /* Models */,
+				024C7D7A248E24250041B715 /* Storyboards */,
+				0276DB0C248DF2AC005DB6F4 /* Views */,
+				02722F4F24987B740092D9B5 /* ViewModels */,
+				024C7D77248E23630041B715 /* Controllers */,
 			);
 			path = Weather;
 			sourceTree = "<group>";

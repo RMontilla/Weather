@@ -16,7 +16,7 @@
         <!--Today-->
         <scene sceneID="1Av-Xb-9j2">
             <objects>
-                <viewController id="kNX-03-9wS" customClass="WeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="weatherViewController" id="kNX-03-9wS" customClass="WeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="po9-EM-1dM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

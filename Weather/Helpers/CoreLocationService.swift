@@ -16,8 +16,7 @@ struct Location {
 }
 
 class CoreLocationService: NSObject, CLLocationManagerDelegate {
-    static let shared = CoreLocationService()
-    //@Published var currentCoordinates: (latitude: Double, longitude: Double)
+    
     var currentCoordinates: CurrentValueSubject<Location?, Never> = .init(nil)
     private var locationManager: CLLocationManager
     
@@ -47,8 +46,6 @@ class CoreLocationService: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let coordinates = locations[0].coordinate
-        print(coordinates)
-        //NotificationCenter.default.post(name: .locationUpdated, object: self, userInfo: [Constants.NotificationKeys.coordinate: userLocation.coordinate])
         currentCoordinates.send(.init(latitude: coordinates.latitude.description, longitude: coordinates.longitude.description))
         locationManager.stopUpdatingLocation()
     }

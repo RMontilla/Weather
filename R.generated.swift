@@ -1609,7 +1609,12 @@ struct _R: Rswift.Validatable {
       typealias InitialController = ForecastViewController
 
       let bundle = R.hostingBundle
+      let forecastViewController = StoryboardViewControllerResource<ForecastViewController>(identifier: "forecastViewController")
       let name = "Forecast"
+
+      func forecastViewController(_: Void = ()) -> ForecastViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: forecastViewController)
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "ForecastActiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ForecastActiveTab' is used in storyboard 'Forecast', but couldn't be loaded.") }
@@ -1617,6 +1622,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "Line", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Line' is used in storyboard 'Forecast', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.forecast().forecastViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'forecastViewController' could not be loaded from storyboard 'Forecast' as 'ForecastViewController'.") }
       }
 
       fileprivate init() {}
@@ -1644,7 +1650,12 @@ struct _R: Rswift.Validatable {
       typealias InitialController = MainTabViewController
 
       let bundle = R.hostingBundle
+      let mainTabViewController = StoryboardViewControllerResource<MainTabViewController>(identifier: "mainTabViewController")
       let name = "Main"
+
+      func mainTabViewController(_: Void = ()) -> MainTabViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: mainTabViewController)
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "ForecastActiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ForecastActiveTab' is used in storyboard 'Main', but couldn't be loaded.") }
@@ -1653,6 +1664,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "TodayInactiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TodayInactiveTab' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.main().mainTabViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainTabViewController' could not be loaded from storyboard 'Main' as 'MainTabViewController'.") }
       }
 
       fileprivate init() {}
@@ -1665,6 +1677,11 @@ struct _R: Rswift.Validatable {
 
       let bundle = R.hostingBundle
       let name = "Weather"
+      let weatherViewController = StoryboardViewControllerResource<WeatherViewController>(identifier: "weatherViewController")
+
+      func weatherViewController(_: Void = ()) -> WeatherViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: weatherViewController)
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "ClearSkyDay", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ClearSkyDay' is used in storyboard 'Weather', but couldn't be loaded.") }
@@ -1682,6 +1699,7 @@ struct _R: Rswift.Validatable {
           if UIKit.UIColor(named: "cl-light-blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'cl-light-blue' is used in storyboard 'Weather', but couldn't be loaded.") }
           if UIKit.UIColor(named: "cl-orange", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'cl-orange' is used in storyboard 'Weather', but couldn't be loaded.") }
         }
+        if _R.storyboard.weather().weatherViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'weatherViewController' could not be loaded from storyboard 'Weather' as 'WeatherViewController'.") }
       }
 
       fileprivate init() {}

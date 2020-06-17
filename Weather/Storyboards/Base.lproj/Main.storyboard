@@ -9,16 +9,12 @@
         <!--Main Tab View Controller-->
         <scene sceneID="zvt-SN-IDh">
             <objects>
-                <tabBarController id="lq8-hF-kN9" customClass="MainTabViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabViewController" id="lq8-hF-kN9" customClass="MainTabViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kvb-we-KBu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="rFu-kf-FhN" kind="relationship" relationship="viewControllers" id="1HE-a1-EBj"/>
-                        <segue destination="DYq-Ga-c3X" kind="relationship" relationship="viewControllers" id="wiO-5U-Nqu"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46N-hb-yJX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

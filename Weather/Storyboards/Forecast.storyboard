@@ -15,7 +15,7 @@
         <!--Forecast-->
         <scene sceneID="t3D-j5-sYe">
             <objects>
-                <viewController id="WUc-Ey-RMu" customClass="ForecastViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="forecastViewController" id="WUc-Ey-RMu" customClass="ForecastViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hra-sC-BL8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
