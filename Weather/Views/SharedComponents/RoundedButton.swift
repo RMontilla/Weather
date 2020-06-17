@@ -9,9 +9,9 @@
 import UIKit
 
 class RoundedButton: UIButton {
-    //MARK: - Variables
+    // MARK: - Variables
     @IBInspectable private var cornerRadius: CGFloat = 10
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = cornerRadius

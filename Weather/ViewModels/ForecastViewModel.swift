@@ -13,14 +13,13 @@ class ForecastViewModel {
     var cityName = CurrentValueSubject<String?, Never>(nil)
     var forecasts = CurrentValueSubject<[ForecastDayCellModel], Never>([])
     var errorMessage = CurrentValueSubject<String?, Never>(nil)
-    
+
     let API: APIManager
-    
+
     init(apiManager: APIManager = APIManager()) {
         self.API = apiManager
     }
-    
-    //MARK: - Fetch methods
+    // MARK: - Fetch methods
     func fetchForecast(_ location: Location) {
         let request = ForecastRequest(latitude: location.latitude, longitude: location.longitude)
         API.makeRequest(target: request) { [weak self] (result: Result<ForecastResponse, APIError>) in

@@ -63,10 +63,10 @@ enum WeatherCondition: Int, Decodable {
     case overcastClouds = 804
 }
 
-//MARK: - Variables
+// MARK: - Variables
 extension WeatherCondition {
     var description: String {
-        switch (self) {
+        switch self {
         case .thunderstormLightRain: return L10n.WeatherCondition.thunderstormLightRain
         case .thunderstormRain: return L10n.WeatherCondition.thunderstormLightRain
         case .thunderstormHeavyRain: return L10n.WeatherCondition.thunderstormHeavyRain
@@ -166,7 +166,7 @@ extension WeatherCondition {
              .overcastClouds: return R.image.brokenCloudsDay.name
         }
     }
-    
+
     var nightImage: String {
         switch self {
         case .thunderstormLightRain,
@@ -217,7 +217,6 @@ extension WeatherCondition {
              .overcastClouds: return R.image.brokenCloudsNight.name
         }
     }
-    
 }
 
 enum WindDirection: Int, Decodable {

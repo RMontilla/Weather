@@ -13,7 +13,7 @@ enum APIError: Error {
     case noData
     case decodeError
     case customError(_ message: String)
-    
+
     var errorDescription: String {
         switch self {
         case .noData: return L10n.Error.noData
@@ -31,18 +31,18 @@ final class APIManager {
         decoder.dateDecodingStrategy = .formatted(formatter)
         return decoder
     }
-    
-    public func makeRequest<T: Decodable>(target: RequestConvertible, completion: @escaping (Result<T, APIError>) -> Void) {
-        
+
+    public func makeRequest<T: Decodable>(target: RequestConvertible,
+                                          completion: @escaping (Result<T, APIError>) -> Void) {
+
         AF.request(target)
           .validate(statusCode: 200...201)
             .responseDecodable(of: T.self, decoder: decoder) { (response) in
             print("didmake call")
             if let data = response.data,
-                let json = try? JSONSerialization.jsonObject(with: data, options: []){
+               let json = try? JSONSerialization.jsonObject(with: data, options: []) {
                 print("json \(json)")
             }
-            
             if let errorDescription = response.error?.errorDescription {
                 completion(.failure(.customError(errorDescription)))
                 return

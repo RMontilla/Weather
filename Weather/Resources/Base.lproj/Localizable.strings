@@ -6,17 +6,17 @@
   Copyright © 2020 rafael. All rights reserved.
 */
 
-//MARK: - Today
+// MARK:- Today
 "Today.title" = "Today";
 
-//MARK: - Forecast
+// MARK:- Forecast
 "Forecast.title" = "Forecast";
 
-//MARK: - Errors
+// MARK:- Errors
 "Error.genericError" = "An error has occurred. Please try again";
 "Error.noData" = "There is no data available";
 
-//MARK: - Weather Conditions
+// MARK:- Weather Conditions
 //Thunderstorm
 "WeatherCondition.thunderstormLightRain" = "Thunderstorm with Light Rain";
 "WeatherCondition.thunderstormRain" = "Thunderstorm with Rain";

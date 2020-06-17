@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 class WeatherViewController: UIViewController {
-    //MARK: - Outlets
+    // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var weatherImageView: UIImageView!
     @IBOutlet private weak var locationDescriptionLabel: UILabel!
@@ -20,39 +20,37 @@ class WeatherViewController: UIViewController {
     @IBOutlet private weak var pressureLabel: UILabel!
     @IBOutlet private weak var windSpeedLabel: UILabel!
     @IBOutlet private weak var windDirectionLabel: UILabel!
-    
-    //MARK: - Variables
+
+    // MARK: - Variables
     private var bag = Set<AnyCancellable>()
     private var viewModel: WeatherViewModel
-    
-    //MARK: - Injected properties
+
+    // MARK: - Injected properties
     private let locationService: CoreLocationService
     private let apiManager: APIManager
-    
-    //MARK: - Custom Init
+    // MARK: - Custom Init
     init?(coder: NSCoder, locationService: CoreLocationService, apiManager: APIManager) {
         self.locationService = locationService
         self.apiManager = apiManager
         self.viewModel = WeatherViewModel(apiManager: apiManager)
         super.init(coder: coder)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //MARK: - View Lifecycle
+
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLocalizedText()
         subscribeToPublishers()
     }
-    //MARK: - Setup
+    // MARK: - Setup
     private func setupLocalizedText() {
         titleLabel.text = L10n.Today.title
         title = L10n.Today.title
     }
-    
+
     private func subscribeToPublishers() {
         // Location service
         locationService.currentCoordinates
@@ -61,7 +59,7 @@ class WeatherViewController: UIViewController {
                 self?.viewModel.fetchCurrentWeather(location)
             }
             .store(in: &bag)
-        
+
         // View model
         viewModel.weatherImageName
             .sink { [weak self] imageName in

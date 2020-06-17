@@ -18,7 +18,7 @@ extension WeatherRequest: RequestConvertible {
     var router: Router { return .weatherAPI }
     var path: String { return "weather?lat=\(latitude)&lon=\(longitude)" }
     var method: HTTPMethod { return .get }
-    
+
     var parameters: Parameters? {
         return ["latitude": latitude,
                 "longitude": longitude]

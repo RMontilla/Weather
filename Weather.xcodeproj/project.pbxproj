@@ -16,6 +16,7 @@
 		02146DB42497272F009662C7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02146DB32497272F009662C7 /* R.generated.swift */; };
 		02146DB7249728CB009662C7 /* ForecastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02146DB6249728CB009662C7 /* ForecastResponse.swift */; };
 		02146DBB249730AC009662C7 /* WeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02146DBA249730AC009662C7 /* WeatherCondition.swift */; };
+		02418CBD2499B4A700D805DE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 02418CBC2499B4A600D805DE /* .swiftlint.yml */; };
 		024C7D67248E04E00041B715 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024C7D66248E04E00041B715 /* Weather.swift */; };
 		024C7D6C248E180E0041B715 /* ShadowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024C7D6B248E180E0041B715 /* ShadowContainerView.swift */; };
 		024C7D71248E22A70041B715 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 024C7D73248E22A70041B715 /* Localizable.strings */; };
@@ -52,6 +53,7 @@
 		02146DB32497272F009662C7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		02146DB6249728CB009662C7 /* ForecastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastResponse.swift; sourceTree = "<group>"; };
 		02146DBA249730AC009662C7 /* WeatherCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCondition.swift; sourceTree = "<group>"; };
+		02418CBC2499B4A600D805DE /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		024C7D66248E04E00041B715 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		024C7D6B248E180E0041B715 /* ShadowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowContainerView.swift; sourceTree = "<group>"; };
 		024C7D72248E22A70041B715 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		024C7D76248E23440041B715 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				02418CBC2499B4A600D805DE /* .swiftlint.yml */,
 				02722F3D249744B20092D9B5 /* swiftgen.yml */,
 				024C7D78248E23820041B715 /* Info.plist */,
 				02E7F6D7248A2B1C00B7378E /* LaunchScreen.storyboard */,
@@ -309,6 +312,7 @@
 			buildConfigurationList = 02E7F6DD248A2B1C00B7378E /* Build configuration list for PBXNativeTarget "Weather" */;
 			buildPhases = (
 				3214FCAF418EC35C10CDB329 /* [CP] Check Pods Manifest.lock */,
+				02418CB92499B06600D805DE /* ShellScript */,
 				02E7F705248DC6B200B7378E /* Run Script */,
 				02E7F6C5248A2B1500B7378E /* Sources */,
 				02E7F6C6248A2B1500B7378E /* Frameworks */,
@@ -372,12 +376,30 @@
 				02E7F6D6248A2B1C00B7378E /* Assets.xcassets in Resources */,
 				02E7F6D4248A2B1500B7378E /* Main.storyboard in Resources */,
 				02146DAF249719E7009662C7 /* Montserrat-Light.otf in Resources */,
+				02418CBD2499B4A700D805DE /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		02418CB92499B06600D805DE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		02E7F705248DC6B200B7378E /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -607,10 +629,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QHQTJY568Z;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Weather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -631,10 +650,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QHQTJY568Z;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Weather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (

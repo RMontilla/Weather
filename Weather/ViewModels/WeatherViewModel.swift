@@ -18,19 +18,15 @@ class WeatherViewModel {
     var pressure = CurrentValueSubject<String?, Never>(nil)
     var windSpeed = CurrentValueSubject<String?, Never>(nil)
     var windDirection = CurrentValueSubject<String?, Never>(nil)
-    
     var errorMessage = CurrentValueSubject<String?, Never>(nil)
-    
+
     let API: APIManager
-    
     init(apiManager: APIManager = APIManager()) {
         self.API = apiManager
     }
-    
-    //MARK: - Fetch methods
+    // MARK: - Fetch methods
     func fetchCurrentWeather(_ location: Location) {
         let request = WeatherRequest(latitude: location.latitude, longitude: location.longitude)
-        
         API.makeRequest(target: request) { [weak self] (result: Result<Weather, APIError>) in
             switch result {
             case .success(let weatherResponse):
@@ -40,7 +36,7 @@ class WeatherViewModel {
             }
         }
     }
-    
+
     private func formatWeatherInfo(_ weather: Weather) {
         weatherImageName.send(weather.weatherCondition.dayImage)
         formattedLocation.send("\(weather.name), \(weather.country)")

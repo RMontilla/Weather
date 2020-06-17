@@ -13,11 +13,10 @@ class ShadowContainerView: UIView {
     @IBInspectable private var shadowColor: UIColor = .black
     @IBInspectable private var shadowOffset: CGFloat = 5
     @IBInspectable private var shadowRadius: CGFloat = 2
-        
+
     override func layoutSubviews() {
         super.layoutSubviews()
         backgroundColor = .clear
-        
         layer.shadowColor = shadowColor.cgColor
         layer.shadowOffset = CGSize(width: shadowOffset, height: shadowOffset)
         layer.shadowRadius = shadowRadius

@@ -172,14 +172,22 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 3 files.
+  /// This `R.file` struct is generated, and contains static references to 4 files.
   struct file {
+    /// Resource file `.swiftlint.yml`.
+    static let swiftlintYml = Rswift.FileResource(bundle: R.hostingBundle, name: ".swiftlint", pathExtension: "yml")
     /// Resource file `Montserrat-Light.otf`.
     static let montserratLightOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Montserrat-Light", pathExtension: "otf")
     /// Resource file `Montserrat-Medium.otf`.
     static let montserratMediumOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Montserrat-Medium", pathExtension: "otf")
     /// Resource file `swiftgen.yml`.
     static let swiftgenYml = Rswift.FileResource(bundle: R.hostingBundle, name: "swiftgen", pathExtension: "yml")
+
+    /// `bundle.url(forResource: ".swiftlint", withExtension: "yml")`
+    static func swiftlintYml(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.swiftlintYml
+      return fileResource.bundle.url(forResource: fileResource)
+    }
 
     /// `bundle.url(forResource: "Montserrat-Light", withExtension: "otf")`
     static func montserratLightOtf(_: Void = ()) -> Foundation.URL? {

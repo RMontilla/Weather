@@ -16,7 +16,7 @@ protocol ForecastDayCellModel {
 }
 
 class ForecastDayTableViewCell: UITableViewCell {
-    //MARK: - Outlets
+    // MARK: - Outlets
     @IBOutlet private weak var weatherImageView: UIImageView!
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var weatherDescriptionLabel: UILabel!
@@ -31,7 +31,7 @@ class ForecastDayTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
+
     func setupCell(withModel model: ForecastDayCellModel) {
         weatherImageView.image = UIImage(named: model.imageName)
         timeLabel.text = model.formattedTime

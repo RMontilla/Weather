@@ -6,17 +6,17 @@
   Copyright © 2020 rafael. All rights reserved.
 */
 
-//MARK: - Today
+// MARK:- Today
 "Today.title" = "今日";
 
-//MARK: - Forecast
+// MARK:- Forecast
 "Forecast.title" = "天気情報";
 
-//MARK: - Errors
+// MARK:- Errors
 "Error.genericError" = "エラーが発生しました. もう一度試して下さい";
 "Error.noData" = "データがありませんでした";
 
-//MARK: - Weather Conditions
+// MARK:- Weather Conditions
 //Thunderstorm
 "WeatherCondition.thunderstormLightRain" = "小雨のある雷雨";
 "WeatherCondition.thunderstormRain" = "雷雨";

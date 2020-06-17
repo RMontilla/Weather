@@ -10,44 +10,42 @@ import UIKit
 import Combine
 
 class ForecastViewController: UIViewController {
-    //MARK: - Outlets
+    // MARK: - Outlets
     @IBOutlet private weak var cityNameLabel: UILabel!
     @IBOutlet private weak var forecastTableView: UITableView!
-    //MARK: - Constants
+    // MARK: - Constants
     private struct Features {
         static let cellHeight: CGFloat = 90
     }
-    //MARK: - Variables
+    // MARK: - Variables
     private var bag = Set<AnyCancellable>()
     private var viewModel: ForecastViewModel
-    
-    //MARK: - Injected properties
+    // MARK: - Injected properties
     private let locationService: CoreLocationService
     private let apiManager: APIManager
-    //MARK: - Custom Init
+    // MARK: - Custom Init
     init?(coder: NSCoder, locationService: CoreLocationService, apiManager: APIManager) {
         self.locationService = locationService
         self.apiManager = apiManager
         self.viewModel = ForecastViewModel(apiManager: apiManager)
         super.init(coder: coder)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //MARK: - View Lifecycle
+
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLocalizedText()
         setupTableView()
         subscribeToPublishers()
     }
-    //MARK: - Setup
+    // MARK: - Setup
     private func setupLocalizedText() {
         title = L10n.Forecast.title
     }
-    
+
     private func setupTableView() {
         forecastTableView.register(R.nib.forecastDayTableViewCell)
     }
@@ -59,30 +57,29 @@ class ForecastViewController: UIViewController {
                 self?.viewModel.fetchForecast(location)
             }
             .store(in: &bag)
-        
+
         // View model
         viewModel.forecasts
             .sink { [weak self] _ in
                 self?.forecastTableView.reloadData()
             }
             .store(in: &bag)
-        
         viewModel.cityName
             .assign(to: \.text, on: cityNameLabel)
             .store(in: &bag)
     }
 }
 
-//MARK: - UITableViewDataSource
+// MARK: - UITableViewDataSource
 extension ForecastViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.forecasts.value.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.forecastDayTableViewCell,
                                                  for: indexPath)!
@@ -92,20 +89,20 @@ extension ForecastViewController: UITableViewDataSource {
     }
 }
 
-//MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate
 extension ForecastViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return .init()
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Features.cellHeight
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }
