@@ -10,13 +10,19 @@ import UIKit
 import CoreLocation
 
 class MainTabViewController: UITabBarController {
-    //MARK: - Variables
-    private var locationService: CoreLocationService {
-        let locationService = CoreLocationService()
-        locationService.startUpdating()
-        return locationService
+    //MARK: - Injected properties
+    private let locationService: CoreLocationService
+    private let apiManager: APIManager
+    //MARK: - Custom Init
+    init?(coder: NSCoder, locationService: CoreLocationService, apiManager: APIManager) {
+        self.locationService = locationService
+        self.apiManager = apiManager
+        super.init(coder: coder)
     }
-    private let apiManager = APIManager()
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -26,6 +32,7 @@ class MainTabViewController: UITabBarController {
     
     //MARK: - Setup
     private func setupTabBarControllers() {
+        
         guard let forecastController = R.storyboard.forecast().instantiateInitialViewController(creator: { [weak self] coder in
                   guard let self = self else { return nil }
                   return ForecastViewController(coder: coder, locationService: self.locationService, apiManager: self.apiManager)

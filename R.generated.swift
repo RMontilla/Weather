@@ -1638,6 +1638,7 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "cl-light-blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'cl-light-blue' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         }
       }
 
@@ -1647,7 +1648,7 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MainTabViewController
+      typealias InitialController = UIKit.UIViewController
 
       let bundle = R.hostingBundle
       let mainTabViewController = StoryboardViewControllerResource<MainTabViewController>(identifier: "mainTabViewController")
@@ -1658,10 +1659,6 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "ForecastActiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ForecastActiveTab' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ForecastInactiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ForecastInactiveTab' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "TodayActiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TodayActiveTab' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "TodayInactiveTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TodayInactiveTab' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().mainTabViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainTabViewController' could not be loaded from storyboard 'Main' as 'MainTabViewController'.") }
