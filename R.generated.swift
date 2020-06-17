@@ -1641,7 +1641,7 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UIViewController
+      typealias InitialController = AuthViewController
 
       let bundle = R.hostingBundle
       let mainTabViewController = StoryboardViewControllerResource<MainTabViewController>(identifier: "mainTabViewController")

@@ -25,7 +25,7 @@ class AuthenticationManager {
         //oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
 
         //3
-        oauthswift.authorize(withCallbackURL: "Weather://oauth-callback/google",
+        oauthswift.authorize(withCallbackURL: "com.rafael.Weather://oauth/token",
                              scope: "profile",
                              state: "") { result in
             switch result {

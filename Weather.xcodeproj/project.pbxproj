@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		026AEAEF2499DCAC004F352E /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAEE2499DCAC004F352E /* RequestInterceptor.swift */; };
 		026AEAF12499DFB4004F352E /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAF02499DFB4004F352E /* KeychainStorage.swift */; };
 		026AEAF32499F3A1004F352E /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAF22499F3A1004F352E /* AuthenticationManager.swift */; };
+		026AEAF52499F97C004F352E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAF42499F97C004F352E /* AuthViewController.swift */; };
 		02722F3E249744B20092D9B5 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 02722F3D249744B20092D9B5 /* swiftgen.yml */; };
 		02722F40249745150092D9B5 /* L10n-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722F3F249745150092D9B5 /* L10n-Constants.swift */; };
 		02722F44249757230092D9B5 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722F43249757230092D9B5 /* ForecastViewController.swift */; };
@@ -66,6 +67,7 @@
 		026AEAEE2499DCAC004F352E /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
 		026AEAF02499DFB4004F352E /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		026AEAF22499F3A1004F352E /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		026AEAF42499F97C004F352E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		02722F3D249744B20092D9B5 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
 		02722F3F249745150092D9B5 /* L10n-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "L10n-Constants.swift"; sourceTree = "<group>"; };
 		02722F43249757230092D9B5 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				02722F492497641A0092D9B5 /* MainTabViewController.swift */,
 				02722F43249757230092D9B5 /* ForecastViewController.swift */,
 				02722F5224988A910092D9B5 /* WeatherViewController.swift */,
+				026AEAF42499F97C004F352E /* AuthViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -424,7 +427,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -484,6 +487,7 @@
 				0276DB0F248DF2ED005DB6F4 /* RoundedButton.swift in Sources */,
 				026AEAEF2499DCAC004F352E /* RequestInterceptor.swift in Sources */,
 				0276DB06248DD296005DB6F4 /* Router.swift in Sources */,
+				026AEAF52499F97C004F352E /* AuthViewController.swift in Sources */,
 				02146DBB249730AC009662C7 /* WeatherCondition.swift in Sources */,
 				02146DAC249716CC009662C7 /* ForecastDayTableViewCell.swift in Sources */,
 				0276DB0B248DD686005DB6F4 /* ForecastRequest.swift in Sources */,

@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Auth View Controller-->
         <scene sceneID="GAu-Bb-Wy3">
             <objects>
-                <viewController id="UQQ-7H-uKN" sceneMemberID="viewController">
+                <viewController id="UQQ-7H-uKN" customClass="AuthViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iis-eU-XNO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,6 +19,9 @@
                                 <rect key="frame" x="166" y="419" width="82" height="58"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                                 <state key="normal" title="Log in"/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="UQQ-7H-uKN" eventType="touchUpInside" id="RBo-Kj-V4c"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -28,6 +31,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jkl-IT-CNB"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="u90-x0-6Q1" id="Anr-NA-pXY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tl5-cy-IZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
