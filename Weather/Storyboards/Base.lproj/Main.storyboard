@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +16,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fAJ-9A-SMi">
-                                <rect key="frame" x="41.5" y="428" width="331" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="fAJ-9A-SMi">
+                                <rect key="frame" x="41.5" y="333.5" width="331" height="229"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cKN-5Z-Pd7">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="108"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fli-r4-Rpx">
+                                                <rect key="frame" x="0.0" y="0.0" width="331" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="continue" textContentType="username"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jeI-3a-BL8">
+                                                <rect key="frame" x="0.0" y="39" width="331" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Hn-u5-D6W">
+                                                <rect key="frame" x="0.0" y="78" width="331" height="30"/>
+                                                <color key="backgroundColor" name="cl-light-blue"/>
+                                                <state key="normal" title="Log In">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginButtonTapped:" destination="UQQ-7H-uKN" eventType="touchUpInside" id="JGP-DT-19v"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRd-1V-ud1">
+                                        <rect key="frame" x="0.0" y="148" width="331" height="1"/>
+                                        <color key="backgroundColor" name="cl-light-gray"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="0jN-ai-Mdj"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qll-d3-Smh" customClass="GIDSignInButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="331" height="40"/>
+                                        <rect key="frame" x="0.0" y="189" width="331" height="40"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="PEz-eZ-7tS"/>
@@ -36,6 +69,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jkl-IT-CNB"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="7Hn-u5-D6W" id="Mkm-bU-qjH"/>
+                        <outlet property="passwordTextField" destination="jeI-3a-BL8" id="pcg-Ug-XEg"/>
+                        <outlet property="usernameTextField" destination="fli-r4-Rpx" id="zSp-Dt-lBr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tl5-cy-IZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,4 +94,12 @@
             <point key="canvasLocation" x="-294" y="-433"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="cl-light-blue">
+            <color red="0.18431372549019609" green="0.56862745098039214" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="cl-light-gray">
+            <color red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
