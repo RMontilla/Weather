@@ -11,5 +11,11 @@ target 'Weather' do
   pod 'SwiftLint'
   pod 'SwiftKeychainWrapper'
   pod 'GoogleSignIn'
+  pod 'Quick'
+  pod 'Nimble'
+  
+  target 'WeatherTests' do
+    inherit! :search_paths
+  end
 
 end
