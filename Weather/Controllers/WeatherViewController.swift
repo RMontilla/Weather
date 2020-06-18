@@ -63,7 +63,11 @@ class WeatherViewController: UIViewController {
         // View model
         viewModel.weatherImageName
             .sink { [weak self] imageName in
-                self?.weatherImageView.image = UIImage(named: imageName)
+                if let imageName = imageName {
+                    self?.weatherImageView.image = UIImage(named: imageName)
+                } else {
+                    self?.weatherImageView.image = nil
+                }
             }
             .store(in: &bag)
         viewModel.formattedLocation

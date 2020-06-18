@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 class WeatherViewModel {
-    var weatherImageName = CurrentValueSubject<String, Never>("")
+    var weatherImageName = CurrentValueSubject<String?, Never>(nil)
     var formattedLocation = CurrentValueSubject<String?, Never>(nil)
     var weatherDescription = CurrentValueSubject<String?, Never>(nil)
     var humidity = CurrentValueSubject<String?, Never>(nil)
