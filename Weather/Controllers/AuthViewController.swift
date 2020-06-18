@@ -35,19 +35,33 @@ class AuthViewController: UIViewController {
     }
 
     private func setupBindings() {
-        viewModel.usernamePublisher
-                 .assign(to: \.text, on: usernameTextField)
-                 .store(in: &bag)
-        viewModel.passwordPublisher
-                 .assign(to: \.text, on: passwordTextField)
-                 .store(in: &bag)
-        viewModel.valid
-                 .assign(to: \.isEnabled, on: loginButton)
-                 .store(in: &bag)
+        viewModel.validCredentials
+            .assign(to: \.isEnabled, on: loginButton)
+            .store(in: &bag)
+        /* Adding Publishers
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: passwordTextField)
+            .map { $0.object as? UITextField }
+            .map { $0?.text ?? "" }
+            .assign(to: \.password, on: viewModel)
+            .store(in: &bag)
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: usernameTextField)
+            .map { $0.object as? UITextField }
+            .map { $0?.text ?? "" }
+            .assign(to: \.username, on: viewModel)
+            .store(in: &bag)*/
     }
 
     // MARK: - UI Actions
+    @IBAction func valueDidChange(_ sender: UITextField) {
+        switch sender {
+        case usernameTextField: viewModel.username = sender.text ?? ""
+        case passwordTextField: viewModel.password = sender.text ?? ""
+        default: break
+        }
+    }
+
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        print("loginButtonTapped")
     }
 }
 

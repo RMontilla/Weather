@@ -10,15 +10,25 @@ import Foundation
 import Combine
 
 class AuthViewModel {
-    var usernamePublisher = CurrentValueSubject<String?, Never>(nil)
-    var passwordPublisher = CurrentValueSubject<String?, Never>(nil)
-    var valid: AnyPublisher<Bool, Never> {
-        return Publishers.CombineLatest(usernamePublisher, passwordPublisher)
-                          .map { (username, password) -> Bool in
-                              guard let username = username,
-                                    let password = password else { return false }
-                              return !username.isEmpty && !password.isEmpty && password.count > 12
-                          }
-                          .eraseToAnyPublisher()
+    @Published var username: String = ""
+    @Published var password: String = ""
+    var validUsername: AnyPublisher<Bool, Never> {
+        return $username
+            .debounce(for: 0.2, scheduler: RunLoop.main)
+            .removeDuplicates()
+            .map { $0.count > 3 }
+            .eraseToAnyPublisher()
+    }
+    var validPassword: AnyPublisher<Bool, Never> {
+        return $password
+            .debounce(for: 0.2, scheduler: RunLoop.main)
+            .removeDuplicates()
+            .map { $0.count > 8 }
+            .eraseToAnyPublisher()
+    }
+    var validCredentials: AnyPublisher<Bool, Never> {
+        return Publishers.CombineLatest(validUsername, validPassword)
+            .map { $0 && $1 }
+            .eraseToAnyPublisher()
     }
 }
