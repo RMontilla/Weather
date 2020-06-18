@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        /*guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
 
         let locationService = CoreLocationService()
@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return MainTabViewController(coder: coder, locationService: locationService, apiManager: apiManager)
         })
         window?.rootViewController = tabViewController
-        window?.makeKeyAndVisible()
+        window?.makeKeyAndVisible()*/
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -49,5 +49,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidEnterBackground(_ scene: UIScene) {
     }
-
 }
