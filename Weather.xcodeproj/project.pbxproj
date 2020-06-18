@@ -22,7 +22,6 @@
 		024C7D71248E22A70041B715 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 024C7D73248E22A70041B715 /* Localizable.strings */; };
 		026AEAEF2499DCAC004F352E /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAEE2499DCAC004F352E /* RequestInterceptor.swift */; };
 		026AEAF12499DFB4004F352E /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAF02499DFB4004F352E /* KeychainStorage.swift */; };
-		026AEAF32499F3A1004F352E /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAF22499F3A1004F352E /* AuthenticationManager.swift */; };
 		026AEAF52499F97C004F352E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAF42499F97C004F352E /* AuthViewController.swift */; };
 		02722F3E249744B20092D9B5 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 02722F3D249744B20092D9B5 /* swiftgen.yml */; };
 		02722F40249745150092D9B5 /* L10n-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722F3F249745150092D9B5 /* L10n-Constants.swift */; };
@@ -66,7 +65,6 @@
 		024C7D78248E23820041B715 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Weather/Info.plist; sourceTree = SOURCE_ROOT; };
 		026AEAEE2499DCAC004F352E /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
 		026AEAF02499DFB4004F352E /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
-		026AEAF22499F3A1004F352E /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		026AEAF42499F97C004F352E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		02722F3D249744B20092D9B5 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
 		02722F3F249745150092D9B5 /* L10n-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "L10n-Constants.swift"; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 				0276DB05248DD296005DB6F4 /* Router.swift */,
 				026AEAEE2499DCAC004F352E /* RequestInterceptor.swift */,
 				026AEAF02499DFB4004F352E /* KeychainStorage.swift */,
-				026AEAF22499F3A1004F352E /* AuthenticationManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -330,6 +327,7 @@
 				02E7F6C6248A2B1500B7378E /* Frameworks */,
 				02E7F6C7248A2B1500B7378E /* Resources */,
 				E4E787663961C9041B311FC4 /* [CP] Embed Pods Frameworks */,
+				C292D21EA6CFF50A3CF405BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -455,6 +453,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C292D21EA6CFF50A3CF405BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E4E787663961C9041B311FC4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -493,7 +508,6 @@
 				0276DB0B248DD686005DB6F4 /* ForecastRequest.swift in Sources */,
 				02E7F6CD248A2B1500B7378E /* AppDelegate.swift in Sources */,
 				02722F40249745150092D9B5 /* L10n-Constants.swift in Sources */,
-				026AEAF32499F3A1004F352E /* AuthenticationManager.swift in Sources */,
 				02722F4D249864CF0092D9B5 /* CoreLocationService.swift in Sources */,
 				024C7D67248E04E00041B715 /* Weather.swift in Sources */,
 				02146DB7249728CB009662C7 /* ForecastResponse.swift in Sources */,

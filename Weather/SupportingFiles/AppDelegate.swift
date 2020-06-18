@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import OAuthSwift
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        GIDSignIn.sharedInstance()?
+                 .clientID = "185091436273-724fdq3l3e7bd9iu9h8k933f8cubgmne.apps.googleusercontent.com"
         return true
     }
 
@@ -28,13 +30,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-    }
-
-    func application(_ app: UIApplication,
-                     open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        print("url \(url.absoluteString)")
-        OAuthSwift.handle(url: url)
-        return true
     }
 }

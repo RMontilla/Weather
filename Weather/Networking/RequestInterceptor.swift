@@ -20,7 +20,6 @@ final class RequestInterceptor: Alamofire.RequestInterceptor {
         var urlRequest = urlRequest
         let accessToken = KeychainWrapper.standard.string(forKey: "accessToken") ?? ""
         urlRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
-        print("access \(accessToken)")
         completion(.success(urlRequest))
     }
 

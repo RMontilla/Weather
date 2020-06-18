@@ -7,9 +7,9 @@ target 'Weather' do
 
   # Pods for Weather
   pod 'Alamofire', '~> 5.2'
-  pod 'OAuthSwift', '~> 2.0.0'
   pod 'R.swift'
   pod 'SwiftLint'
   pod 'SwiftKeychainWrapper'
+  pod 'GoogleSignIn'
 
 end

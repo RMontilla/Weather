@@ -25,8 +25,6 @@ enum APIError: Error {
 
 final class APIManager {
     private let session = Session(interceptor: RequestInterceptor())
-    
-    static let googleClientID = "185091436273-n2ee0tg2s297nuev9hqsh6vpoo45ghi2.apps.googleusercontent.com"
 
     private var decoder: JSONDecoder {
         let decoder = JSONDecoder()

@@ -15,25 +15,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u90-x0-6Q1">
-                                <rect key="frame" x="166" y="419" width="82" height="58"/>
-                                <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                                <state key="normal" title="Log in"/>
-                                <connections>
-                                    <action selector="loginButtonTapped:" destination="UQQ-7H-uKN" eventType="touchUpInside" id="RBo-Kj-V4c"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fAJ-9A-SMi">
+                                <rect key="frame" x="41.5" y="428" width="331" height="40"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qll-d3-Smh" customClass="GIDSignInButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="PEz-eZ-7tS"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="u90-x0-6Q1" firstAttribute="centerX" secondItem="iis-eU-XNO" secondAttribute="centerX" id="9nz-Hl-KEU"/>
-                            <constraint firstItem="u90-x0-6Q1" firstAttribute="centerY" secondItem="iis-eU-XNO" secondAttribute="centerY" id="Hks-Hy-NT2"/>
+                            <constraint firstItem="fAJ-9A-SMi" firstAttribute="centerY" secondItem="iis-eU-XNO" secondAttribute="centerY" id="9aL-1Y-xfV"/>
+                            <constraint firstItem="fAJ-9A-SMi" firstAttribute="centerX" secondItem="iis-eU-XNO" secondAttribute="centerX" id="P5c-bl-2Ii"/>
+                            <constraint firstItem="fAJ-9A-SMi" firstAttribute="width" secondItem="iis-eU-XNO" secondAttribute="width" multiplier="0.8" id="yBg-2d-hA4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jkl-IT-CNB"/>
                     </view>
-                    <connections>
-                        <outlet property="loginButton" destination="u90-x0-6Q1" id="Anr-NA-pXY"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tl5-cy-IZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
