@@ -10,6 +10,7 @@ import UIKit
 
 protocol ForecastDayCellModel {
     var imageName: String { get }
+    var formattedDay: String { get }
     var formattedTime: String { get }
     var weatherDescription: String { get }
     var formattedTemperature: String { get }
@@ -21,6 +22,7 @@ class ForecastDayTableViewCell: UITableViewCell {
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var weatherDescriptionLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
+    @IBOutlet private weak var separatorView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,10 +34,12 @@ class ForecastDayTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setupCell(withModel model: ForecastDayCellModel) {
+    func setupCell(withModel model: ForecastDayCellModel,
+                   hideSeparator: Bool = false) {
         weatherImageView.image = model.imageName.isEmpty ? nil : UIImage(named: model.imageName)
         timeLabel.text = model.formattedTime
         weatherDescriptionLabel.text = model.weatherDescription
         temperatureLabel.text = model.formattedTemperature
+        separatorView.isHidden = hideSeparator
     }
 }

@@ -16,11 +16,10 @@ class AuthViewController: UIViewController {
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
-    
     // MARK: - Variables
     private let viewModel = AuthViewModel()
     private var bag = Set<AnyCancellable>()
-    
+
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +27,13 @@ class AuthViewController: UIViewController {
         setupBindings()
         // Do any additional setup after loading the view.
     }
-    
+
     // MARK: - Setup
     private func setupGoogleSignIn() {
         GIDSignIn.sharedInstance().presentingViewController = self
         GIDSignIn.sharedInstance()?.delegate = self
     }
-    
+
     private func setupBindings() {
         viewModel.usernamePublisher
                  .assign(to: \.text, on: usernameTextField)
@@ -46,9 +45,8 @@ class AuthViewController: UIViewController {
                  .assign(to: \.isEnabled, on: loginButton)
                  .store(in: &bag)
     }
-    
+
     // MARK: - UI Actions
-    
     @IBAction func loginButtonTapped(_ sender: UIButton) {
     }
 }

@@ -24,6 +24,9 @@
 		026AEAF12499DFB4004F352E /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAF02499DFB4004F352E /* KeychainStorage.swift */; };
 		026AEAF52499F97C004F352E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAF42499F97C004F352E /* AuthViewController.swift */; };
 		026AEAF9249B0C77004F352E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAF8249B0C77004F352E /* AuthViewModel.swift */; };
+		026AEAFB249B2EE6004F352E /* ForecastSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 026AEAFA249B2EE6004F352E /* ForecastSectionHeaderView.xib */; };
+		026AEAFD249B2F96004F352E /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 026AEAFC249B2F91004F352E /* Montserrat-SemiBold.otf */; };
+		026AEAFF249B308B004F352E /* ForecastSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026AEAFE249B308B004F352E /* ForecastSectionHeaderView.swift */; };
 		02722F3E249744B20092D9B5 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 02722F3D249744B20092D9B5 /* swiftgen.yml */; };
 		02722F40249745150092D9B5 /* L10n-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722F3F249745150092D9B5 /* L10n-Constants.swift */; };
 		02722F44249757230092D9B5 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02722F43249757230092D9B5 /* ForecastViewController.swift */; };
@@ -68,6 +71,9 @@
 		026AEAF02499DFB4004F352E /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		026AEAF42499F97C004F352E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		026AEAF8249B0C77004F352E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		026AEAFA249B2EE6004F352E /* ForecastSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastSectionHeaderView.xib; sourceTree = "<group>"; };
+		026AEAFC249B2F91004F352E /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		026AEAFE249B308B004F352E /* ForecastSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastSectionHeaderView.swift; sourceTree = "<group>"; };
 		02722F3D249744B20092D9B5 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
 		02722F3F249745150092D9B5 /* L10n-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "L10n-Constants.swift"; sourceTree = "<group>"; };
 		02722F43249757230092D9B5 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 		02146DA124970E8E009662C7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				026AEAFC249B2F91004F352E /* Montserrat-SemiBold.otf */,
 				02146DAE249719E7009662C7 /* Montserrat-Light.otf */,
 				02146DA224970F09009662C7 /* Montserrat-Medium.otf */,
 			);
@@ -128,6 +135,8 @@
 		02146DA924971699009662C7 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				026AEAFA249B2EE6004F352E /* ForecastSectionHeaderView.xib */,
+				026AEAFE249B308B004F352E /* ForecastSectionHeaderView.swift */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -382,9 +391,11 @@
 			files = (
 				02146DA7249715B3009662C7 /* Forecast.storyboard in Resources */,
 				02722F3E249744B20092D9B5 /* swiftgen.yml in Resources */,
+				026AEAFB249B2EE6004F352E /* ForecastSectionHeaderView.xib in Resources */,
 				02E7F6D9248A2B1C00B7378E /* LaunchScreen.storyboard in Resources */,
 				02146DA524971024009662C7 /* Weather.storyboard in Resources */,
 				02146DA324970F09009662C7 /* Montserrat-Medium.otf in Resources */,
+				026AEAFD249B2F96004F352E /* Montserrat-SemiBold.otf in Resources */,
 				024C7D71248E22A70041B715 /* Localizable.strings in Resources */,
 				02146DAD249716CC009662C7 /* ForecastDayTableViewCell.xib in Resources */,
 				02E7F6D6248A2B1C00B7378E /* Assets.xcassets in Resources */,
@@ -497,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				026AEAFF249B308B004F352E /* ForecastSectionHeaderView.swift in Sources */,
 				02722F4A2497641A0092D9B5 /* MainTabViewController.swift in Sources */,
 				0276DB04248DCC1C005DB6F4 /* APIManager.swift in Sources */,
 				024C7D6C248E180E0041B715 /* ShadowContainerView.swift in Sources */,

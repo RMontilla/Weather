@@ -172,7 +172,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 4 files.
+  /// This `R.file` struct is generated, and contains static references to 5 files.
   struct file {
     /// Resource file `.swiftlint.yml`.
     static let swiftlintYml = Rswift.FileResource(bundle: R.hostingBundle, name: ".swiftlint", pathExtension: "yml")
@@ -180,6 +180,8 @@ struct R: Rswift.Validatable {
     static let montserratLightOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Montserrat-Light", pathExtension: "otf")
     /// Resource file `Montserrat-Medium.otf`.
     static let montserratMediumOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Montserrat-Medium", pathExtension: "otf")
+    /// Resource file `Montserrat-SemiBold.otf`.
+    static let montserratSemiBoldOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Montserrat-SemiBold", pathExtension: "otf")
     /// Resource file `swiftgen.yml`.
     static let swiftgenYml = Rswift.FileResource(bundle: R.hostingBundle, name: "swiftgen", pathExtension: "yml")
 
@@ -201,6 +203,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "Montserrat-SemiBold", withExtension: "otf")`
+    static func montserratSemiBoldOtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.montserratSemiBoldOtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     /// `bundle.url(forResource: "swiftgen", withExtension: "yml")`
     static func swiftgenYml(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.swiftgenYml
@@ -210,12 +218,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.font` struct is generated, and contains static references to 2 fonts.
+  /// This `R.font` struct is generated, and contains static references to 3 fonts.
   struct font: Rswift.Validatable {
     /// Font `Montserrat-Light`.
     static let montserratLight = Rswift.FontResource(fontName: "Montserrat-Light")
     /// Font `Montserrat-Medium`.
     static let montserratMedium = Rswift.FontResource(fontName: "Montserrat-Medium")
+    /// Font `Montserrat-SemiBold`.
+    static let montserratSemiBold = Rswift.FontResource(fontName: "Montserrat-SemiBold")
 
     /// `UIFont(name: "Montserrat-Light", size: ...)`
     static func montserratLight(size: CGFloat) -> UIKit.UIFont? {
@@ -227,9 +237,15 @@ struct R: Rswift.Validatable {
       return UIKit.UIFont(resource: montserratMedium, size: size)
     }
 
+    /// `UIFont(name: "Montserrat-SemiBold", size: ...)`
+    static func montserratSemiBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: montserratSemiBold, size: size)
+    }
+
     static func validate() throws {
       if R.font.montserratLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Montserrat-Light' could not be loaded, is 'Montserrat-Light.otf' added to the UIAppFonts array in this targets Info.plist?") }
       if R.font.montserratMedium(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Montserrat-Medium' could not be loaded, is 'Montserrat-Medium.otf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.montserratSemiBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Montserrat-SemiBold' could not be loaded, is 'Montserrat-SemiBold.otf' added to the UIAppFonts array in this targets Info.plist?") }
     }
 
     fileprivate init() {}
@@ -551,10 +567,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
     /// Nib `ForecastDayTableViewCell`.
     static let forecastDayTableViewCell = _R.nib._ForecastDayTableViewCell()
+    /// Nib `ForecastSectionHeaderView`.
+    static let forecastSectionHeaderView = _R.nib._ForecastSectionHeaderView()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "ForecastDayTableViewCell", in: bundle)`
@@ -564,8 +582,20 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "ForecastSectionHeaderView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.forecastSectionHeaderView) instead")
+    static func forecastSectionHeaderView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.forecastSectionHeaderView)
+    }
+    #endif
+
     static func forecastDayTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ForecastDayTableViewCell? {
       return R.nib.forecastDayTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ForecastDayTableViewCell
+    }
+
+    static func forecastSectionHeaderView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ForecastSectionHeaderView? {
+      return R.nib.forecastSectionHeaderView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ForecastSectionHeaderView
     }
 
     fileprivate init() {}
@@ -1571,6 +1601,17 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ForecastDayTableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ForecastDayTableViewCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _ForecastSectionHeaderView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "ForecastSectionHeaderView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ForecastSectionHeaderView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ForecastSectionHeaderView
       }
 
       fileprivate init() {}

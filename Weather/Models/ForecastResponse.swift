@@ -56,6 +56,13 @@ extension ForecastDay: ForecastDayCellModel {
         return formatter.string(from: time)
     }
 
+    var formattedDay: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE"
+        let formattedString = formatter.string(from: time)
+        return formattedString == formatter.string(from: Date()) ? L10n.Today.title : formattedString
+    }
+
     var weatherDescription: String {
         return weatherCondition.description
     }

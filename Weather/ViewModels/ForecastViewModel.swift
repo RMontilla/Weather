@@ -11,7 +11,7 @@ import Combine
 
 class ForecastViewModel {
     var cityName = CurrentValueSubject<String?, Never>(nil)
-    var forecasts = CurrentValueSubject<[ForecastDayCellModel], Never>([])
+    var forecasts = CurrentValueSubject<[(String, [ForecastDayCellModel])], Never>([])
     var errorMessage = CurrentValueSubject<String?, Never>(nil)
 
     let API: APIManager
@@ -25,7 +25,11 @@ class ForecastViewModel {
         API.makeRequest(target: request) { [weak self] (result: Result<ForecastResponse, APIError>) in
             switch result {
             case .success(let response):
-                self?.forecasts.send(response.forecasts)
+                let groupedArray = Dictionary(grouping: response.forecasts,
+                                              by: { $0.formattedDay })
+                    .map { ($0.key, $0.value) }
+                    .sorted { $0.1[0].time < $1.1[0].time }
+                self?.forecasts.send(groupedArray)
                 self?.cityName.send(response.cityName)
             case .failure(let error):
                 self?.forecasts.send([])

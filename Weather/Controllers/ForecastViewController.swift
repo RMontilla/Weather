@@ -14,8 +14,9 @@ class ForecastViewController: UIViewController {
     @IBOutlet private weak var cityNameLabel: UILabel!
     @IBOutlet private weak var forecastTableView: UITableView!
     // MARK: - Constants
-    private struct Features {
+    private enum Features {
         static let cellHeight: CGFloat = 90
+        static let headerHeight: CGFloat = 45
     }
     // MARK: - Variables
     private var bag = Set<AnyCancellable>()
@@ -73,18 +74,21 @@ class ForecastViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension ForecastViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.forecasts.value.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.forecasts.value.count
+        return viewModel.forecasts.value[section].1.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.forecastDayTableViewCell,
                                                  for: indexPath)!
-        let forecastModel = viewModel.forecasts.value[indexPath.row]
-        cell.setupCell(withModel: forecastModel)
+        let dayForecasts = viewModel.forecasts
+                                    .value[indexPath.section]
+        let forecastModel = dayForecasts.1[indexPath.row]
+        let isLastElement = dayForecasts.1.count - 1 == indexPath.row
+        cell.setupCell(withModel: forecastModel, hideSeparator: isLastElement)
         return cell
     }
 }
@@ -92,11 +96,13 @@ extension ForecastViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension ForecastViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        return Features.headerHeight
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return .init()
+        let headerView = R.nib.forecastSectionHeaderView.firstView(owner: self)
+        headerView?.setHeaderTitle(viewModel.forecasts.value[section].0)
+        return headerView
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
