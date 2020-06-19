@@ -20,7 +20,7 @@ extension ForecastRequest: RequestConvertible {
     var method: HTTPMethod { return .get }
 
     var parameters: Parameters? {
-        return ["latitude": latitude,
-                "longitude": longitude]
+        return ["lat": latitude,
+                "lon": longitude]
     }
 }

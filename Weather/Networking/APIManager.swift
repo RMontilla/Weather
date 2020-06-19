@@ -23,7 +23,12 @@ enum APIError: Error {
     }
 }
 
-final class APIManager {
+protocol API: class {
+    func makeRequest<T:Decodable>(target: RequestConvertible,
+                                  completion: @escaping (Result<T, APIError>) -> Void)
+}
+
+final class APIManager: API {
     private let session = Session(interceptor: RequestInterceptor())
 
     private var decoder: JSONDecoder {

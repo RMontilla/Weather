@@ -20,8 +20,8 @@ class WeatherViewModel {
     var windDirection = CurrentValueSubject<String?, Never>(nil)
     var errorMessage = CurrentValueSubject<String?, Never>(nil)
 
-    let API: APIManager
-    init(apiManager: APIManager = APIManager()) {
+    let API: API
+    init(apiManager: API = APIManager()) {
         self.API = apiManager
     }
     // MARK: - Fetch methods
