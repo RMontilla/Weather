@@ -23,7 +23,7 @@ class AuthViewModel {
         return $password
             .debounce(for: 0.2, scheduler: RunLoop.main)
             .removeDuplicates()
-            .map { $0.count > 8 }
+            .map { $0.count > 5 }
             .eraseToAnyPublisher()
     }
     var validCredentials: AnyPublisher<Bool, Never> {
