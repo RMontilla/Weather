@@ -24,8 +24,8 @@ enum APIError: Error {
 }
 
 protocol API: class {
-    func makeRequest<T:Decodable>(target: RequestConvertible,
-                                  completion: @escaping (Result<T, APIError>) -> Void)
+    func makeRequest<T: Decodable>(target: RequestConvertible,
+                                   completion: @escaping (Result<T, APIError>) -> Void)
 }
 
 final class APIManager: API {

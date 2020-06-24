@@ -33,6 +33,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         })
         window?.rootViewController = tabViewController
         window?.makeKeyAndVisible()
+        if let url = connectionOptions.urlContexts.first?.url {
+            handleDeepLinkUrl(url)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -48,5 +51,43 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+    }
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        //first launch after install
+        handleDeepLinkUrl(URLContexts.first?.url)
+    }
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        //when in background mode
+        handleDeepLinkUrl(userActivity.webpageURL)
+    }
+
+    @discardableResult
+    func handleDeepLinkUrl(_ url: URL?) -> Bool {
+        guard let url = url else { return false }
+        if let scheme = url.scheme,
+            scheme.localizedCaseInsensitiveCompare("com.rafael.Weather") == .orderedSame,
+            let view = url.host {
+            var parameters: [String: String] = [:]
+            URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+                parameters[$0.name] = $0.value
+            }
+            redirect(to: view, with: parameters)
+        }
+        return true
+    }
+
+    private func redirect(to view: String,
+                          with parameters: [String: String]) {
+        switch view {
+        case "forecast": navigateToForecast()
+        default: break
+        }
+    }
+
+    private func navigateToForecast() {
+        guard let tabBarController = window?.rootViewController as? UITabBarController else {
+          return
+        }
+        tabBarController.selectedIndex = 1
     }
 }
