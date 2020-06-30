@@ -15,7 +15,11 @@ struct Location {
     let longitude: String
 }
 
-class CoreLocationService: NSObject, CLLocationManagerDelegate {
+protocol CoreLocationService {
+    var currentCoordinates: CurrentValueSubject<Location?, Never> { get set }
+}
+
+class LocationService: NSObject, CoreLocationService, CLLocationManagerDelegate {
     var currentCoordinates: CurrentValueSubject<Location?, Never> = .init(nil)
     private var locationManager: CLLocationManager
 

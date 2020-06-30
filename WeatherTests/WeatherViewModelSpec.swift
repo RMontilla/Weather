@@ -17,21 +17,23 @@ class MockAPI: API {
         lastPath = target.path
         return
     }
-    
-    
+}
+class MockLocationService: CoreLocationService {
+    var currentCoordinates = CurrentValueSubject<Location?, Never>(nil)
 }
 
 class WeatherViewModelSpec: QuickSpec {
     override func spec() {
-        describe("making api call") {
-            context("fetching today's weather") {
+        describe("core location") {
+            context("coordinates have changed") {
                 it("should call weather path") {
                     //Arrange
                     let mockAPI = MockAPI()
-                    let weatherViewModel = WeatherViewModel(apiManager: mockAPI)
+                    let mockLocationService = MockLocationService()
+                    let weatherViewModel = WeatherViewModel(apiManager: mockAPI, locationService: mockLocationService)
                     let location = Location(latitude: "1", longitude: "1")
                     //Act
-                    weatherViewModel.fetchCurrentWeather(location)
+                    weatherViewModel.locationService.currentCoordinates.send(location)
                     //Assert
                     expect(mockAPI.lastPath.hasPrefix("weather?")).to(equal(true))
                 }
