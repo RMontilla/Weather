@@ -36,13 +36,20 @@ class MockLocationService: CoreLocationService {
 
 class WeatherViewModelSpec: QuickSpec {
     override func spec() {
+        var mockAPI: MockAPI!
+        var mockLocationService: MockLocationService!
+        var weatherViewModel: WeatherViewModel!
+        
+        beforeEach {
+            mockAPI = MockAPI()
+            mockLocationService = MockLocationService()
+            weatherViewModel = WeatherViewModel(apiManager: mockAPI, locationService: mockLocationService)
+        }
+        
         describe("core location") {
             context("coordinates have changed") {
                 it("should call weather path") {
                     //Arrange
-                    let mockAPI = MockAPI()
-                    let mockLocationService = MockLocationService()
-                    let weatherViewModel = WeatherViewModel(apiManager: mockAPI, locationService: mockLocationService)
                     let location = Location(latitude: "1", longitude: "1")
                     //Act
                     weatherViewModel.locationService.currentCoordinates.send(location)
@@ -56,9 +63,6 @@ class WeatherViewModelSpec: QuickSpec {
             context("receives weather object") {
                 it("should format correctly") {
                     //Arrange
-                    let mockAPI = MockAPI()
-                    let mockLocationService = MockLocationService()
-                    let weatherViewModel = WeatherViewModel(apiManager: mockAPI, locationService: mockLocationService)
                     let location = Location(latitude: "1", longitude: "1")
                     //Act
                     weatherViewModel.locationService.currentCoordinates.send(location)
