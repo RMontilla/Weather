@@ -10,14 +10,30 @@ import Foundation
 import Combine
 
 class ForecastViewModel {
+    // MARK: - Variables
     var cityName = CurrentValueSubject<String?, Never>(nil)
     var forecasts = CurrentValueSubject<[(String, [ForecastDayCellModel])], Never>([])
     var errorMessage = CurrentValueSubject<String?, Never>(nil)
+    private var bag = Set<AnyCancellable>()
 
+    // MARK: - Injected Properties
     let API: APIManager
+    let locationService: CoreLocationService
 
-    init(apiManager: APIManager = APIManager()) {
+    // MARK: - Init
+    init(apiManager: APIManager = APIManager(), locationService: CoreLocationService) {
         self.API = apiManager
+        self.locationService = locationService
+        self.setup()
+    }
+    // MARK: - Setup
+    func setup() {
+        locationService.currentCoordinates
+        .sink { [weak self] location in
+            guard let location = location else { return }
+            self?.fetchForecast(location)
+        }
+        .store(in: &bag)
     }
     // MARK: - Fetch methods
     func fetchForecast(_ location: Location) {

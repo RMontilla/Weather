@@ -32,7 +32,7 @@ class WeatherViewController: UIViewController {
     init?(coder: NSCoder, locationService: CoreLocationService, apiManager: APIManager) {
         self.locationService = locationService
         self.apiManager = apiManager
-        self.viewModel = WeatherViewModel(apiManager: apiManager)
+        self.viewModel = WeatherViewModel(apiManager: apiManager, locationService: locationService)
         super.init(coder: coder)
     }
     required init?(coder: NSCoder) {
@@ -52,14 +52,6 @@ class WeatherViewController: UIViewController {
     }
 
     private func subscribeToPublishers() {
-        // Location service
-        locationService.currentCoordinates
-            .sink { [weak self] location in
-                guard let location = location else { return }
-                self?.viewModel.fetchCurrentWeather(location)
-            }
-            .store(in: &bag)
-
         // View model
         viewModel.weatherImageName
             .sink { [weak self] imageName in

@@ -10,6 +10,7 @@ import Foundation
 import Combine
 
 class WeatherViewModel {
+    // MARK: - Variables
     var weatherImageName = CurrentValueSubject<String?, Never>(nil)
     var formattedLocation = CurrentValueSubject<String?, Never>(nil)
     var weatherDescription = CurrentValueSubject<String?, Never>(nil)
@@ -19,10 +20,24 @@ class WeatherViewModel {
     var windSpeed = CurrentValueSubject<String?, Never>(nil)
     var windDirection = CurrentValueSubject<String?, Never>(nil)
     var errorMessage = CurrentValueSubject<String?, Never>(nil)
-
+    private var bag = Set<AnyCancellable>()
+    // MARK: - Injected Properties
     let API: API
-    init(apiManager: API = APIManager()) {
+    let locationService: CoreLocationService
+    // MARK: - Init
+    init(apiManager: API = APIManager(), locationService: CoreLocationService) {
         self.API = apiManager
+        self.locationService = locationService
+        self.setup()
+    }
+    // MARK: - Setup
+    func setup() {
+        locationService.currentCoordinates
+        .sink { [weak self] location in
+            guard let location = location else { return }
+            self?.fetchCurrentWeather(location)
+        }
+        .store(in: &bag)
     }
     // MARK: - Fetch methods
     func fetchCurrentWeather(_ location: Location) {
@@ -36,7 +51,7 @@ class WeatherViewModel {
             }
         }
     }
-
+    // MARK: - Formatting
     private func formatWeatherInfo(_ weather: Weather) {
         weatherImageName.send(weather.weatherCondition.dayImage)
         formattedLocation.send("\(weather.name), \(weather.country)")

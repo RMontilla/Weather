@@ -28,7 +28,7 @@ class ForecastViewController: UIViewController {
     init?(coder: NSCoder, locationService: CoreLocationService, apiManager: APIManager) {
         self.locationService = locationService
         self.apiManager = apiManager
-        self.viewModel = ForecastViewModel(apiManager: apiManager)
+        self.viewModel = ForecastViewModel(apiManager: apiManager, locationService: locationService)
         super.init(coder: coder)
     }
     required init?(coder: NSCoder) {
@@ -51,14 +51,6 @@ class ForecastViewController: UIViewController {
         forecastTableView.register(R.nib.forecastDayTableViewCell)
     }
     private func subscribeToPublishers() {
-        // Location service
-        locationService.currentCoordinates
-            .sink { [weak self] location in
-                guard let location = location else { return }
-                self?.viewModel.fetchForecast(location)
-            }
-            .store(in: &bag)
-
         // View model
         viewModel.forecasts
             .sink { [weak self] _ in
