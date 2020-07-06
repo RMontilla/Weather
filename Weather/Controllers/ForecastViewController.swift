@@ -65,11 +65,13 @@ class ForecastViewController: UIViewController {
     private func subscribeToPublishers() {
         // View model
         viewModel.forecasts
+            .subscribe(on: DispatchQueue.global())
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] forecasts in
                 var snapshot = Snapshot()
                 snapshot.appendSections(forecasts.map { $0.0 })
                 forecasts.forEach { snapshot.appendItems($0.1, toSection: $0.0) }
-                DispatchQueue.main.async { self?.dataSource.apply(snapshot) }
+                self?.dataSource.apply(snapshot)
             }
             .store(in: &bag)
         viewModel.cityName
