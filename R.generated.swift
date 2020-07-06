@@ -603,8 +603,8 @@ struct R: Rswift.Validatable {
 
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `ForecastDayTableViewCell`.
-    static let forecastDayTableViewCell: Rswift.ReuseIdentifier<ForecastDayTableViewCell> = Rswift.ReuseIdentifier(identifier: "ForecastDayTableViewCell")
+    /// Reuse identifier `ForecastCell`.
+    static let forecastCell: Rswift.ReuseIdentifier<ForecastDayTableViewCell> = Rswift.ReuseIdentifier(identifier: "ForecastCell")
 
     fileprivate init() {}
   }
@@ -1596,7 +1596,7 @@ struct _R: Rswift.Validatable {
       typealias ReusableType = ForecastDayTableViewCell
 
       let bundle = R.hostingBundle
-      let identifier = "ForecastDayTableViewCell"
+      let identifier = "ForecastCell"
       let name = "ForecastDayTableViewCell"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ForecastDayTableViewCell? {

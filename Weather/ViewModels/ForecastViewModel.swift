@@ -12,7 +12,7 @@ import Combine
 class ForecastViewModel {
     // MARK: - Variables
     var cityName = CurrentValueSubject<String?, Never>(nil)
-    var forecasts = CurrentValueSubject<[(String, [ForecastDayCellModel])], Never>([])
+    var forecasts = CurrentValueSubject<[(String, [ForecastDay])], Never>([])
     var errorMessage = CurrentValueSubject<String?, Never>(nil)
     private var bag = Set<AnyCancellable>()
 

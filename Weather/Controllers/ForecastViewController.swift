@@ -10,6 +10,8 @@ import UIKit
 import Combine
 
 class ForecastViewController: UIViewController {
+    typealias DataSource = UITableViewDiffableDataSource<String, ForecastDay>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<String, ForecastDay>
     // MARK: - Outlets
     @IBOutlet private weak var cityNameLabel: UILabel!
     @IBOutlet private weak var forecastTableView: UITableView!
@@ -21,6 +23,7 @@ class ForecastViewController: UIViewController {
     // MARK: - Variables
     private var bag = Set<AnyCancellable>()
     private var viewModel: ForecastViewModel
+    private var dataSource: DataSource!
     // MARK: - Injected properties
     private let locationService: CoreLocationService
     private let apiManager: APIManager
@@ -49,39 +52,29 @@ class ForecastViewController: UIViewController {
 
     private func setupTableView() {
         forecastTableView.register(R.nib.forecastDayTableViewCell)
+        dataSource = DataSource(tableView: forecastTableView) { (tableView, indexPath, forecast) -> UITableViewCell? in
+                            let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.forecastCell,
+                                                                     for: indexPath)!
+                            let dayForecasts = self.viewModel.forecasts
+                                                             .value[indexPath.section]
+                            let isLastElement = dayForecasts.1.count - 1 == indexPath.row
+                            cell.setupCell(withModel: forecast, hideSeparator: isLastElement)
+                            return cell
+                     }
     }
     private func subscribeToPublishers() {
         // View model
         viewModel.forecasts
-            .sink { [weak self] _ in
-                self?.forecastTableView.reloadData()
+            .sink { [weak self] forecasts in
+                var snapshot = Snapshot()
+                snapshot.appendSections(forecasts.map { $0.0 })
+                forecasts.forEach { snapshot.appendItems($0.1, toSection: $0.0) }
+                DispatchQueue.main.async { self?.dataSource.apply(snapshot) }
             }
             .store(in: &bag)
         viewModel.cityName
             .assign(to: \.text, on: cityNameLabel)
             .store(in: &bag)
-    }
-}
-
-// MARK: - UITableViewDataSource
-extension ForecastViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.forecasts.value.count
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.forecasts.value[section].1.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.forecastDayTableViewCell,
-                                                 for: indexPath)!
-        let dayForecasts = viewModel.forecasts
-                                    .value[indexPath.section]
-        let forecastModel = dayForecasts.1[indexPath.row]
-        let isLastElement = dayForecasts.1.count - 1 == indexPath.row
-        cell.setupCell(withModel: forecastModel, hideSeparator: isLastElement)
-        return cell
     }
 }
 

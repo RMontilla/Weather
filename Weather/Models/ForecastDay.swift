@@ -12,7 +12,7 @@ enum TimeOfDay {
     case day, night
 }
 
-struct ForecastDay {
+struct ForecastDay: Hashable {
     var temperature: Float
     var weatherCondition: WeatherCondition
     var time: Date
@@ -24,6 +24,7 @@ struct ForecastDay {
         return 6...18 ~= hour ? .day : .night
     }
 }
+
 
 extension ForecastDay: ForecastDayCellModel {
     var imageName: String {
