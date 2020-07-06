@@ -8,16 +8,20 @@
 
 import Foundation
 import Alamofire
+import Combine
 
 enum APIError: Error {
+    case failure
     case noData
     case decodeError
+    case notConnected
     case customError(_ message: String)
 
     var errorDescription: String {
         switch self {
         case .noData: return L10n.Error.noData
         case .customError(let message): return message
+        case .notConnected: return "Not connected to internet"
         default: return L10n.Error.genericError
         }
     }
@@ -37,6 +41,30 @@ final class APIManager: API {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         decoder.dateDecodingStrategy = .formatted(formatter)
         return decoder
+    }
+    public func execute<T: Decodable>(target: RequestConvertible) -> AnyPublisher<T, APIError> {
+        let request = try! target.asURLRequest()
+        return URLSession.shared
+            .dataTaskPublisher(for: request)
+            .tryMap { data, response -> Data in
+                guard let httpResponse = response as? HTTPURLResponse,
+                          httpResponse.statusCode == 200 else {
+                      throw APIError.failure
+                }
+                return data
+            }
+            .tryMap { data -> T in
+                let value = try self.decoder.decode(T.self, from: data)
+                return value
+            }
+            .mapError { error -> APIError in
+                switch error {
+                case URLError.notConnectedToInternet: return .notConnected
+                default: return .customError(error.localizedDescription)
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 
     public func makeRequest<T: Decodable>(target: RequestConvertible,
