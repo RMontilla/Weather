@@ -42,7 +42,7 @@ final class APIManager: API {
         decoder.dateDecodingStrategy = .formatted(formatter)
         return decoder
     }
-    public func execute<T: Decodable>(target: RequestConvertible) -> AnyPublisher<T, APIError> {
+    public func execute<T: Decodable>(target: RequestConvertible, returnedObject: T.Type) -> AnyPublisher<T, APIError> {
         let request = try! target.asURLRequest()
         return URLSession.shared
             .dataTaskPublisher(for: request)

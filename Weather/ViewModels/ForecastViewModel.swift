@@ -32,7 +32,7 @@ class ForecastViewModel {
             .compactMap { $0 }
             .flatMap { location -> AnyPublisher<ForecastResponse, Never> in
                 let target = ForecastRequest(latitude: location.latitude, longitude: location.longitude)
-                let publisher: AnyPublisher<ForecastResponse, APIError> = self.API.execute(target: target)
+                let publisher = self.API.execute(target: target, returnedObject: ForecastResponse.self)
                 return publisher.catch { (error) -> Just<ForecastResponse> in
                     self.errorMessage.value = error.errorDescription
                     return Just(ForecastResponse(cityName: "", forecasts: []))
@@ -48,7 +48,7 @@ class ForecastViewModel {
             }
             .store(in: &bag)
     }
-    
+
     // MARK: - Fetch methods
     func fetchForecast(_ location: Location) {
         let request = ForecastRequest(latitude: location.latitude, longitude: location.longitude)
